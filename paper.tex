@@ -14,9 +14,15 @@
 
 % first the title is needed
 %\title{Modeling Gompertz-Lognormal Diffusion Process}
-\title{Comparing some optimization methods to obtain estimations in the Gompertz-lognormal diffusion process}
+%\title{Comparing some optimization methods to obtain estimations in
+%the Gompertz-lognormal diffusion process}
+% Un tÃ­tulo no deberÃ­a contener conceptos o temas desconocidos. Y
+% "some" es bastante modesto. 
+\titlerunning{Using evolutionary algorithms to optimize the estimation
+  of a diffusion process}
+% Tampoco me encanta, pero al menos sigue las reglas. 
 % a short form should be given in case it is too long for the running head
-\titlerunning{Comparing optimization methods to obtain estimations}
+\titlerunning{Optimizing the estimation of a diffusion process}
 
 % the name(s) of the author(s) follow(s) next
 %
@@ -63,12 +69,23 @@
 
 
 \begin{abstract}
-The maximum likelihood estimation of the parameters of a diffusion process requires a system of equations that, for some cases, has no explicit solution to be solved. Facing that situation, we can approximate the solution using an optimization method. In this paper we compare five optimization methods: an Iterative Method, an algorithm based on Newton-Raphson solver, a Variable Neighbourhood Search method, a Simulated Annealing algorithm and an Evolutionary Algorithm. We generate four data sets following a Gompertz-lognormal diffusion process using different noise level. The methods are applied with these data sets for estimating the parameters which are present into the diffusion process. Results show that bio-inspired methods gain suitable solutions for the problem every time, even when the noise level increase. On the other hand, some analytical methods as Newton-Raphson or the Iterative Method do not solve always solve the problem whether their scores depend on the starting point for initial solution or the noise level hinders the resolution of the problem. In these cases, the bio-inspired algorithms remain as a suitable and reliable approach.
-
-%Maribel: he modificado ligeramente la primera frase para generalizar un poco el problema y que no parezca desde el principio una cosa tan sumamente específica. En esta generalización, es posible que haya dicho algo que no es verdad, así que por favor, si es así, intentad corregirlo, pero sin especificar mucho, para que el paper no parezca desde el principio algo muy muy específico y poco generalizable, aunque lo sea.
-
-
-
+The maximum likelihood estimation of the parameters of a diffusion
+process requires a system of equations that, for some cases, has no
+explicit solution; thus, the solution has to be estimated. We will use
+optimization methods to find those solutions: an Iterative Method, an
+algorithm based on Newton-Raphson solver, a Variable Neighbourhood
+Search method, a Simulated Annealing algorithm and an Evolutionary
+Algorithm. We generate four data sets following a Gompertz-lognormal
+diffusion process using different noise levels. The methods are applied
+to these data sets in order to estimate the parameters that rule
+the diffusion process. Results show that bio-inspired methods
+yield suitable solutions for the problem every time, even when the
+noise level increases. On the other hand, some analytical methods as
+Newton-Raphson or the Iterative Method do not always solve the
+problem whether their scores depend on the starting point for initial
+solution or the noise level hinders the resolution of the problem. In
+these cases, the bio-inspired algorithms remain as a suitable and
+reliable approach. 
 
 %\keywords{Maximum likelihood estimate, parameters estimation}
 \keywords{Diffusion Process, Parameter Estimation, Optimization Methods}
