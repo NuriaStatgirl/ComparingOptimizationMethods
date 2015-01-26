@@ -1,4 +1,3 @@
-
 \documentclass{sig-alternate}
 \usepackage{amssymb}
 \setcounter{tocdepth}{3}
@@ -6,8 +5,6 @@
 
 \usepackage{url}
 \urldef{\mailsa}\path|{mgarenas,nrico,deromero,pacv,jmerelo}@ugr.es|
-\newcommand{\keywords}[1]{\par\addvspace\baselineskip
-\noindent\keywordname\enspace\ignorespaces#1}
 
 \begin{document}
 \conferenceinfo{GECCO'15,} {July 11-15, 2015, Madrid, Spain.}
@@ -15,7 +12,7 @@
     \crdata{TBA}
     \clubpenalty=10000
     \widowpenalty = 10000
-\mainmatter  % start of an individual contribution
+%\mainmatter  % start of an individual contribution
 %
 
 
@@ -297,7 +294,7 @@ In order to compare the five different methods we carry out a simulation of the 
 
 The simulation allows us to find paths that validate the estimation procedures proposed. To this end, several different paths are generated using a recursive algorithm starting with initial value, $x_0$. This value is determined by the initial distribution being considered as either degenerate or lognormal. For the generation of paths, it is considered $x_0$ following a lognormal distribution $\Lambda(0;1)$. The values of the parameters in the simulation are $m=1$, $\beta=0.2$ and $c=0.013$. Four different values for $\sigma^2$ have been considered, taking the values $10^{-5}$, $10^{-4}$, $10^{-3}$ and $10^{-2}$. For each combination, we simulate 100 paths with 500 data each one, from times $t_0=1$ to $t_{500}=100$, being $t_i-t_{i-1}=0.2$. Figure \ref{1:figura:path} shows the simulated paths.
 
-\begin{figure}
+\begin{figure*}[htb]
   \centering
 \begin{tabular}{ c c }
   \epsfig{file=graf1prueba.eps,width=.50\textwidth} & \epsfig{file=graf2prueba.eps,width=.50\textwidth} \\
@@ -305,8 +302,8 @@ The simulation allows us to find paths that validate the estimation procedures p
   \epsfig{file=graf3prueba.eps,width=.50\textwidth} & \epsfig{file=graf4prueba.eps,width=.50\textwidth} \\
   $\sigma^2=10^{-3}$ & $\sigma^2=10^{-2}$\\
 \end{tabular}
-\caption{\footnotesize{Simulated paths for Gompertz-lognormal process from $t_0=1$ to $t_{500}=100$, with values $m=1$, $\beta=0.2$, and $c=0.013$ and different values of noise; $\sigma^2=10^{-5}$, $\sigma^2=10^{-4}$, $\sigma^2=10^{-3}$ and  $\sigma^2=10^{-2}$. Black lines highlight the paths last value $x_{i;500}$ are maximum, minimum and the quartiles of the output range. }} \label{1:figura:path}
-\end{figure}
+\caption{Simulated paths for Gompertz-lognormal processes from $t_0=1$ to $t_{500}=100$, with values $m=1$, $\beta=0.2$, and $c=0.013$ and different values of noise; $\sigma^2=10^{-5}$, $\sigma^2=10^{-4}$, $\sigma^2=10^{-3}$ and  $\sigma^2=10^{-2}$. Black lines highlight the paths last value $x_{i;500}$ are maximum, minimum and the quartiles of the output range. } \label{1:figura:path}
+\end{figure*}
 
 For each set of paths, the five proposed methods are used to estimate the parameters. For each method, we calculate the following error measurements \cite{error}: mean squared error (MSE), mean absolute error (MAE), mean absolute percentage error (MAPE), symmetric mean absolute percentage error (SMAPE) and mean relative absolute error (MRAE). In the case of the MRAE, the error is calculated between the estimated mean function and the path that a simple model gives. In this case a \emph{naive} model is used; the predicted value is equal to the value before it.
 
@@ -315,8 +312,7 @@ We summarize the results in Tables \ref{tabla:parametros}  and \ref{tabla:errore
 
 %maribel quito aqu{\'\i} varias frases para ponerlas m{\'a}s abajo, que creo que tienen m{\'a}s sentido
 
-{\scriptsize
-\begin{table}
+\begin{table*}
 \caption{\footnotesize{Average of the estimates $(\overline{\hat{m}}$, $\overline{\hat{\beta}}$, $\overline{\hat{c}}$, $\overline{\hat{\sigma}^{2}})$; standard deviation of each one ($sd$); average ans standard deviation of the value of function (\ref{ecuacion}) ($\overline{\hat{F}},sd$); best found solution (${\hat{F}}_{min}$). Paths simulated with $m=1$, $\beta=0.2$ and $c=0.013$ and $\sigma^2=\{10^{-5},10^{-4},10^{-3},10^{-2}\}$. For each method, the number of the successful solutions (\emph{Succ.}) has been included in the second column.}}
 \begin{center}
 {\scriptsize
@@ -359,9 +355,7 @@ EA 		&$30$	&$1,5391$&$2*10^{-3}$	&$0,32210$&$6*10^{-4}$	&$0,01560$&$3*10^{-6}$ 	
 \end{tabular}}
 \label{tabla:parametros}
 \end{center}
-\end{table}
-}
-\normalsize
+\end{table*}
 
 
 Table \ref{tabla:parametros} includes the average of the parameters estimations when the noise on the simulation is $10^{-5}$, $10^{-4}$, $10^{-3}$ and $10^{-2}$. We also include the standard deviation because  small changes in the value of the parameters could involve big alterations in objective function results.
@@ -378,8 +372,7 @@ Table \ref{tabla:errores} includes firstly the selected sets of estimations $\{\
 
 
 
-{\scriptsize
-\begin{table}
+\begin{table*}
 \caption{\footnotesize{Estimated set of parameters, function (\ref{ecuacion}) it provides and error measurements.}}
 \begin{center}
 {\scriptsize
@@ -431,8 +424,7 @@ Table \ref{tabla:errores} includes firstly the selected sets of estimations $\{\
 \end{tabular}
 }
 \label{tabla:errores}\end{center}
-\end{table}
-}
+\end{table*}
 
 \section{Conclusions}
 \label{sec:Conclusion}
@@ -472,6 +464,71 @@ Hidden for double-blind review
 %\end{center}
 %\end{figure}
 \bibliographystyle{abbrv}
-\bibliography{sigproc}  % sigproc.bib is the name of the Bibliography in this case
+\begin{thebibliography}{10}
+
+\bibitem{proceedingBol}
+Guti{\'e}rrez, R., Rico, N., Rom{\'a}n, P., Romero, D., Torres, F.:
+Un nuevo proceso de difusi{\'o}n para modelizar patrones de crecimiento mixto exponencial-Gompertz. XXX Congreso Nacional SEIO. Libro de Actas, pp. 1--15 (2007)
+
+\bibitem{Gut07b}
+Guti{\'e}rrez, R., Rom{\'a}n, P., Romero, D., Serrano, J.J. y Torres, F.:
+A new Gompertz-type diffusion process with application to random growth. Math. Biosci. 208,147--165 (2007)
+
+\bibitem{GutCy}
+Guti{\'e}rrez, R., Rom{\'a}n, P., Romero, D. and Torres, F.:
+Applications of the univariate lognormal diffusion process with exogenous factors in forecasting. {Cybernet Syst.} {34}(8),709--724 (2003)
+
+\bibitem{Gut99} Guti{\'e}rrez, R., Rom{\'a}n, P. and Torres, F.:
+Inference and first-passage-times for the lognormal diffusion process with exogenous factors: application to modelling
+in economics. Appl. Soch. Model. Bus. {15},325-332 (1999)
+
+\bibitem{SA}
+Ingber, L.:
+Simulated annealing: Practice versus theory. Mathl. Comput. Modelling, vol. 18(11), pp. 29--57 (1993)
+
+
+\bibitem{Kirkpatrick83}
+S. Kirkpatrick1, C. D. Gelatt Jr. M. P. Vecch:
+Optimization by Simulated Annealing. Science Vol. 220 no. 4598 pp. 671-680 (1983)
+
+\bibitem{Michalewicz96}
+Zbigniew Michalewicz:
+Heuristic methods for evolutionary computation techniques. J. Heuristics 1(2):177-206 (1996)
+
+\bibitem{EA}
+B{\"{a}}ck, T.:
+Evolutionary algorithms in theory and practice, Oxford University Press (1996)
+
+\bibitem{Kloeden}
+Kloeden, P. E., Platen, E. y Schurz, H.:
+Numerical solution of SDE through computer experiments, {Springer-Verlag} (1994)
+
+\bibitem{Rao}
+Rao, N. J., Borwankar, J. D. y Ramkrishna, D.:
+Numerical solution of Ito integral equations. {SIAM Journal on Control and Optimization} {12}, 124--139 (1974)
+
+\bibitem{error}
+De Gooijer, J.G., Hyndman, R.J.:
+25 Years of IIF Time Series Forecasting: A Selective Review. Tinbergen Institute Discussion Papers No. TI 05-068/4 . (2005)
+
+\bibitem{GProp}
+P. A. Castillo, J. Carpio, J. J. Merelo, V. Rivas, G. Romero, and A. Prieto:
+Evolving Multilayer Perceptrons, Neural Processing Letters, vol. 12, no. 2, pp. 115--127, 2000.
+
+\bibitem{GPropII}
+S. Fahlman:
+Faster-learning variations on back-propagation: An empirical study, in Proceedings of the 1988 Connection- ist models summer school. M. Kaufmann, 1988, pp. 38--51.
+
+\bibitem{lognormal}
+Log-normal Distributions across the Sciences: Keys and Clues
+Article in Bioscience 51, No. 5, May 2001, 341-352.
+
+\bibitem{blx}
+Manuel Lozano, Francisco Herrera, Natalio Krasnogor, and Daniel Molina:
+Real-coded memetic algorithms with crossover hill-climbing. Evol. Comput. 12, 3. Sep, 2004, 273-302.
+
+\bibitem{VNS} Mladenovic, N. and Hansen, P.: Variable neighborhood search. {Computers and Operations Research} {24}, 1097--1100 (1997)
+
+\end{thebibliography}
 
 \end{document}
