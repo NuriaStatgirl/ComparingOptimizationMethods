@@ -1,10 +1,51 @@
-\documentclass{sig-alternate}
-\usepackage{amssymb}
-\setcounter{tocdepth}{3}
-\usepackage{graphicx, epsfig}
+% This is "sig-alternate.tex" V2.0 May 2012
+% This file should be compiled with V2.5 of "sig-alternate.cls" May 2012
+%
+% This example file demonstrates the use of the 'sig-alternate.cls'
+% V2.5 LaTeX2e document class file. It is for those submitting
+% articles to ACM Conference Proceedings WHO DO NOT WISH TO
+% STRICTLY ADHERE TO THE SIGS (PUBS-BOARD-ENDORSED) STYLE.
+% The 'sig-alternate.cls' file will produce a similar-looking,
+% albeit, 'tighter' paper resulting in, invariably, fewer pages.
+%
+% ----------------------------------------------------------------------------------------------------------------
+% This .tex file (and associated .cls V2.5) produces:
+%       1) The Permission Statement
+%       2) The Conference (location) Info information
+%       3) The Copyright Line with ACM data
+%       4) NO page numbers
+%
+% as against the acm_proc_article-sp.cls file which
+% DOES NOT produce 1) thru' 3) above.
+%
+% Using 'sig-alternate.cls' you have control, however, from within
+% the source .tex file, over both the CopyrightYear
+% (defaulted to 200X) and the ACM Copyright Data
+% (defaulted to X-XXXXX-XX-X/XX/XX).
+% e.g.
+% \CopyrightYear{2007} will cause 2007 to appear in the copyright line.
+% \crdata{0-12345-67-8/90/12} will cause 0-12345-67-8/90/12 to appear in the copyright line.
+%
+% ---------------------------------------------------------------------------------------------------------------
+% This .tex source is an example which *does* use
+% the .bib file (from which the .bbl file % is produced).
+% REMEMBER HOWEVER: After having produced the .bbl file,
+% and prior to final submission, you *NEED* to 'insert'
+% your .bbl file into your source .tex file so as to provide
+% ONE 'self-contained' source file.
+%
+% ================= IF YOU HAVE QUESTIONS =======================
+% Questions regarding the SIGS styles, SIGS policies and
+% procedures, Conferences etc. should be sent to
+% Adrienne Griscti (griscti@acm.org)
+%
+% Technical questions _only_ to
+% Gerald Murray (murray@hq.acm.org)
+% ===============================================================
+%
+% For tracking purposes - this is V2.0 - May 2012
 
-\usepackage{url}
-\urldef{\mailsa}\path|{mgarenas,nrico,deromero,pacv,jmerelo}@ugr.es|
+\documentclass{sig-alternate}
 
 \begin{document}
 \conferenceinfo{GECCO'15,} {July 11-15, 2015, Madrid, Spain.}
@@ -12,11 +53,17 @@
     \crdata{TBA}
     \clubpenalty=10000
     \widowpenalty = 10000
-%\mainmatter  % start of an individual contribution
 %
+% --- Author Metadata here ---
+%\conferenceinfo{WOODSTOCK}{'97 El Paso, Texas USA}
+%\CopyrightYear{2007} % Allows default copyright year (20XX) to be over-ridden - IF NEED BE.
+%\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
+% --- End of Author Metadata ---
 
-
-\title{Using evolutionary algorithms to optimize the estimation of a diffusion process}
+\title{Alternate {\ttlit ACM} SIG Proceedings Paper in LaTeX
+Format\titlenote{(Produces the permission block, and
+copyright information). For use with
+SIG-ALTERNATE.CLS. Supported by ACM.}}
 \subtitle{[Extended Abstract]
 \titlenote{A full version of this paper is available as
 \textit{Author's Guide to Preparing ACM SIG Proceedings Using
@@ -64,33 +111,51 @@
 %
 % 1st. author
 \alignauthor
-Nuria Rico\titlenote{Dr.~Nuria Rico Castro.}\\
-       \affaddr{Faculty of Science University of Granada}\\
+%Nuria Rico\titlenote{Dr.~Nuria Rico Castro.}\\
+%       \affaddr{Faculty of Science }\\
+%       \affaddr{University of Granada}\\
+%       \email{nrico@ugr.es}       
+Nuria Rico\titlenote{Dr.~Rico}\\
+       \affaddr{Statistics and Operational Research}\\
+       \affaddr{University of Granada}\\
+       \affaddr{Granada, Spain}\\
        \email{nrico@ugr.es}
 % 2nd. author
 \alignauthor
-M.G. Arenas\titlenote{Dr. ~ M. Isabel García Arenas.}\\
-       \affaddr{ETSIIT - University of Granada}\\
+M. G. Arenas\titlenote{Dr. ~Arenas}\\
+       \affaddr{Computer Architecture}\\
+       \affaddr{University of Granada}\\
+       \affaddr{Granada, Spain}\\
        \email{mgarenas@ugr.es}
 % 3rd. author
-\alignauthor
-D. Romero\titlenote{Dr. ~Desirée Romero.}\\
-       \affaddr{ETSIIT - University of Granada}\\
+\alignauthor 
+Desir\'{e}e Romero\titlenote{Dr. ~Romero}\\
+       \affaddr{Statistics and Operational Research}\\
+       \affaddr{University of Granada}\\
+       \affaddr{Granada, Spain}\\
        \email{deromero@ugr.es}
-\alignauthor
-P. A. Castillo\titlenote{Dr. ~Pedro A. Castillo Valdivieso.}\\
-       \affaddr{ETSIIT - University of Granada}\\
-       \email{pacv@ugr.es}
-\alignauthor
-J. M. Crespo\titlenote{Dr. ~J. M. Crespo.}\\
-       \affaddr{ETSIIT - University of Granada}\\
-       \email{crespo@ugr.es}
-%\and  % use '\and' if you need 'another row' of author names
+\and  % use '\and' if you need 'another row' of author names
 % 4th. author
-\alignauthor J. J. Merelo\\
-       \affaddr{Dr. Juan Julián Merelo Guervós}\\
-       \affaddr{ETSIIT-University of Granada}\\
-       \email{jjmerelo@ugr.es}
+\alignauthor 
+P. A. Castillo\titlenote{Dr. ~Castillo}\\
+       \affaddr{Computer Architecture}\\
+       \affaddr{University of Granada}\\
+       \affaddr{Granada, Spain}\\
+       \email{pacv@ugr.es}
+% 5th. author
+\alignauthor
+J. M. Crespo\titlenote{Dr. ~Crespo}\\
+       \affaddr{Statistics and Operational Research}\\
+       \affaddr{University of Granada}\\
+       \affaddr{Granada, Spain}\\
+       \email{crespo@ugr.es}
+% 6th. author
+\alignauthor
+J. J. Merelo\titlenote{Dr. ~Merelo}\\
+       \affaddr{Computer Arquitecture}\\
+       \affaddr{University of Granada}\\
+       \affaddr{Granada, Spain}\\
+       \email{jmerelo@ugr.es}
 }
 % There's nothing stopping you putting the seventh, eighth, etc.
 % author on the opening page (as the 'third row') but we ask,
@@ -99,7 +164,7 @@ J. M. Crespo\titlenote{Dr. ~J. M. Crespo.}\\
 %\additionalauthors{Additional authors: John Smith (The Th{\o}rv{\"a}ld Group,
 %email: {\texttt{jsmith@affiliation.org}}) and Julius P.~Kumquat
 %(The Kumquat Consortium, email: {\texttt{jpkumquat@consortium.net}}).}
-%\date{30 July 1999}
+\date{1 Feb 2015}
 % Just remember to make sure that the TOTAL number of authors
 % is the number that will appear on the first page PLUS the
 % number that will appear in the \additionalauthors section.
@@ -297,9 +362,9 @@ The simulation allows us to find paths that validate the estimation procedures p
 \begin{figure*}[htb]
   \centering
 \begin{tabular}{ c c }
-  \epsfig{file=graf1prueba.eps,width=.50\textwidth} & \epsfig{file=graf2prueba.eps,width=.50\textwidth} \\
+  \epsfig{file=graf1prueba.eps,width=.40\textwidth} & \epsfig{file=graf2prueba.eps,width=.40\textwidth} \\
   $\sigma^2=10^{-5}$ & $\sigma^2=10^{-4}$ \\
-  \epsfig{file=graf3prueba.eps,width=.50\textwidth} & \epsfig{file=graf4prueba.eps,width=.50\textwidth} \\
+  \epsfig{file=graf3prueba.eps,width=.40\textwidth} & \epsfig{file=graf4prueba.eps,width=.40\textwidth} \\
   $\sigma^2=10^{-3}$ & $\sigma^2=10^{-2}$\\
 \end{tabular}
 \caption{Simulated paths for Gompertz-lognormal processes from $t_0=1$ to $t_{500}=100$, with values $m=1$, $\beta=0.2$, and $c=0.013$ and different values of noise; $\sigma^2=10^{-5}$, $\sigma^2=10^{-4}$, $\sigma^2=10^{-3}$ and  $\sigma^2=10^{-2}$. Black lines highlight the paths last value $x_{i;500}$ are maximum, minimum and the quartiles of the output range. } \label{1:figura:path}
@@ -466,9 +531,9 @@ Hidden for double-blind review
 \bibliographystyle{abbrv}
 \begin{thebibliography}{10}
 
-\bibitem{proceedingBol}
-Guti{\'e}rrez, R., Rico, N., Rom{\'a}n, P., Romero, D., Torres, F.:
-Un nuevo proceso de difusi{\'o}n para modelizar patrones de crecimiento mixto exponencial-Gompertz. XXX Congreso Nacional SEIO. Libro de Actas, pp. 1--15 (2007)
+%\bibitem{proceedingBol}
+%Guti{\'e}rrez, R., Rico, N., Rom{\'a}n, P., Romero, D., Torres, F.:
+%Un nuevo proceso de difusi{\'o}n para modelizar patrones de crecimiento mixto exponencial-Gompertz. XXX Congreso Nacional SEIO. Libro de Actas, pp. 1--15 (2007)
 
 \bibitem{Gut07b}
 Guti{\'e}rrez, R., Rom{\'a}n, P., Romero, D., Serrano, J.J. y Torres, F.:
@@ -530,5 +595,7 @@ Real-coded memetic algorithms with crossover hill-climbing. Evol. Comput. 12, 3.
 \bibitem{VNS} Mladenovic, N. and Hansen, P.: Variable neighborhood search. {Computers and Operations Research} {24}, 1097--1100 (1997)
 
 \end{thebibliography}
+%\bibliography{comparingbib}  % sigproc.bib is the name of the Bibliography in this case
+
 
 \end{document}
