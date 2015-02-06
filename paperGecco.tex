@@ -1,52 +1,8 @@
-% This is "sig-alternate.tex" V2.0 May 2012
-% This file should be compiled with V2.5 of "sig-alternate.cls" May 2012
-%
-% This example file demonstrates the use of the 'sig-alternate.cls'
-% V2.5 LaTeX2e document class file. It is for those submitting
-% articles to ACM Conference Proceedings WHO DO NOT WISH TO
-% STRICTLY ADHERE TO THE SIGS (PUBS-BOARD-ENDORSED) STYLE.
-% The 'sig-alternate.cls' file will produce a similar-looking,
-% albeit, 'tighter' paper resulting in, invariably, fewer pages.
-%
-% ----------------------------------------------------------------------------------------------------------------
-% This .tex file (and associated .cls V2.5) produces:
-%       1) The Permission Statement
-%       2) The Conference (location) Info information
-%       3) The Copyright Line with ACM data
-%       4) NO page numbers
-%
-% as against the acm_proc_article-sp.cls file which
-% DOES NOT produce 1) thru' 3) above.
-%
-% Using 'sig-alternate.cls' you have control, however, from within
-% the source .tex file, over both the CopyrightYear
-% (defaulted to 200X) and the ACM Copyright Data
-% (defaulted to X-XXXXX-XX-X/XX/XX).
-% e.g.
-% \CopyrightYear{2007} will cause 2007 to appear in the copyright line.
-% \crdata{0-12345-67-8/90/12} will cause 0-12345-67-8/90/12 to appear in the copyright line.
-%
-% ---------------------------------------------------------------------------------------------------------------
-% This .tex source is an example which *does* use
-% the .bib file (from which the .bbl file % is produced).
-% REMEMBER HOWEVER: After having produced the .bbl file,
-% and prior to final submission, you *NEED* to 'insert'
-% your .bbl file into your source .tex file so as to provide
-% ONE 'self-contained' source file.
-%
-% ================= IF YOU HAVE QUESTIONS =======================
-% Questions regarding the SIGS styles, SIGS policies and
-% procedures, Conferences etc. should be sent to
-% Adrienne Griscti (griscti@acm.org)
-%
-% Technical questions _only_ to
-% Gerald Murray (murray@hq.acm.org)
-% ===============================================================
-%
-% For tracking purposes - this is V2.0 - May 2012
 
 \documentclass{sig-alternate}
-
+\usepackage{multicol}
+\usepackage{graphicx, epsfig}
+\usepackage{graphicx}
 \begin{document}
 \conferenceinfo{GECCO'15,} {July 11-15, 2015, Madrid, Spain.}
     \CopyrightYear{2015}
@@ -60,8 +16,7 @@
 %\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
 % --- End of Author Metadata ---
 
-\title{Alternate {\ttlit ACM} SIG Proceedings Paper in LaTeX
-Format\titlenote{(Produces the permission block, and
+\title{Using evolutionary algorithms to optimize the estimation of a diffusion process\titlenote{(Produces the permission block, and
 copyright information). For use with
 SIG-ALTERNATE.CLS. Supported by ACM.}}
 \subtitle{[Extended Abstract]
@@ -197,10 +152,18 @@ reliable approach.
 
 \section{Introduction}
 
-Many probabilistic models are frequently used for natural growth-pattern modeling and making forecast. Although there exists a lot of different growth-patterns, and many models to use, among the widely studied and useful models are diffusion processes. They are frequently employed in biological growth modeling \cite{lognormal}.
+Many probabilistic models are frequently used for natural growth-pattern modeling and making forecast. Although there exists a lot of different growth-patterns, and many models to use, among the widely studied and useful models are diffusion processes. They are frequently employed in biological growth modeling. \cite{lognormal}.
 
-In this paper we focus our attention on the Gompertz-lognormal diffusion process \cite{proceedingBol}. It can be seen as a mixture between a Gompertz-type process \cite{Gut07b} and a lognormal process \cite{GutCy} since the infinitesimal moments that define the Gompertz-lognormal diffusion process are:
 
+%%%Nuevo
+
+Diffusion process is one usual mathematical formulation of a model for population growth in a randomly
+varying environment \cite{lognormal}. These models describe how a population adopts a new innovation, technology or behaviour. With these kind of models, we have the transity density function (t.d.f.) which express the chance of observing
+any size for the population at any time when the initial size is specified. With the t.d.f we also are able to determine the time at that population first reaches a fixed size. Moreover, we can forecast future values of the population size as well as confidence intervals for the predictions.
+
+In this paper we focus our attention on the Gompertz-lognormal diffusion process \cite{proceedingBol}. It can be seen as a mixture between a Gompertz-type process \cite{Gut07b} and a lognormal process \cite{GutCy}. The first one models precesses with trends showing enclosed growth patterns, as biological growth with finite space or resources. The second one is useful for modelling not bounded growth with exponential trend.
+
+The mixture of them, the Gompertz-lognormal diffusion process, combines both trends; a first part Gompertz-like growth and a second exponential part. This process is defined through the infinitesimal moments
 %{\scriptsize
 \[
 \begin{array}{l}
@@ -210,11 +173,11 @@ A_2(x,t)=\sigma^2 x^2,
 \]
 with $m > \beta > 0$, $c\in \mathbb{R}$.
 %}
-%Maribel: Deberíamos poner qué es m, que es e, que es c y por supuesto mencionar que t es el tiempo y que x es la variable independiente no?
+%Maribel: Deber{\'\i}amos poner qu{\'e} es m, que es e, que es c y por supuesto mencionar que t es el tiempo y que x es la variable independiente no?
 
 Taking $c=0$ the process is Gompertz-type, and for a known fixed value of $\beta$ the process is an homogeneous lognormal diffusion process. In other cases, the process has a shape with two inflection points. This makes the process useful for modelling situations with observed paths along time that turn from increasing to decreasing or from concave to convex.
 
-To carry out the estimation, we consider the transition density function, that depends on $m$, $\beta$, $c$ and $\sigma^2$ parameters. Estimating the set of parameters leads to the estimation of the main features of the process. The most widely used, specifically for predicting purposes, are the mean, mode and quantile functions. Their expressions depend on the set of parameters $\{m;\beta; c; \sigma^2\}$ and, in the case of a lognormal initial distribution being considered, on the $\{ \mu_1, \sigma_1^2 \}$ set too.
+To carry out the estimation, we consider the t.d.f., that depends on $m$, $\beta$, $c$ and $\sigma^2$ parameters. Estimating the set of parameters leads to the estimation of the main features of the process. The most widely used, specifically for predicting purposes, are the mean, mode and quantile functions. Their expressions depend on the set of parameters $\{m;\beta; c; \sigma^2\}$ and, in the case of a lognormal initial distribution being considered, on the $\{ \mu_1, \sigma_1^2 \}$ set too.
 
 The problem we deal with is to find the maximum likelihood estimates (MLE) of the parameters of the model, from which the estimation of the parametric functions can be found. Thus, we assume $x_{ij}$, $i=1,\cdots,d$, $j=n_1, \cdots, n_d$ a discrete sampling of $d$ paths, observed in $n_i$ times named $t_{ij}\,(i=1,\cdots,d,j=1,\cdots,n_i )$, not necessarily equal in each observed path, but $t_{i1}=t_{1}$, $i=1,\cdots, d$. With the sample, we try to obtain MLE of the parameters maximising the likelihood function, or equivalently, maximising the log-likelihood without constants values. So the final function we have to maximise, using $b=e^{-\beta}$, and $k=\sum_{i=1}^d n_i$ , is
 \begin{equation}\label{funcion}
@@ -264,7 +227,6 @@ $
 that has no explicit solution.
 
 This point take us to propose different approaches to find the estimates of the parameters, maximising the likelihood function via numerical approximations or finding the estimates with other strategy. We describe the proposed methods in Section \ref{sec:methods}. We compare afterwards, at Section \ref{sec:pathsStudy} all the methods using four simulated data set with different noise levels. Finally, in Section \ref{sec:Conclusion} we establish the main conclusions of the study.
-
 
 
 \section{Methods}
@@ -531,71 +493,69 @@ Hidden for double-blind review
 \bibliographystyle{abbrv}
 \begin{thebibliography}{10}
 
-%\bibitem{proceedingBol}
-%Guti{\'e}rrez, R., Rico, N., Rom{\'a}n, P., Romero, D., Torres, F.:
-%Un nuevo proceso de difusi{\'o}n para modelizar patrones de crecimiento mixto exponencial-Gompertz. XXX Congreso Nacional SEIO. Libro de Actas, pp. 1--15 (2007)
+\bibitem{proceedingBol}
+Guti{\'e}rrez, R., Rico, N., Rom{\'a}n, P., Romero, D., Torres, F.:
+Un nuevo proceso de difusi{\'o}n para modelizar patrones de crecimiento mixto exponencial-Gompertz. XXX Congreso Nacional SEIO. Proceedings book, pp. 1--15 (2007)
 
 \bibitem{Gut07b}
-Guti{\'e}rrez, R., Rom{\'a}n, P., Romero, D., Serrano, J.J. y Torres, F.:
-A new Gompertz-type diffusion process with application to random growth. Math. Biosci. 208,147--165 (2007)
+Guti{\'e}rrez, R., Rom{\'a}n, P., Romero, D., Serrano, J.J.,  Torres, F.:
+A new Gompertz-type diffusion process with application to random growth. Math. Biosci. 208, 147--165 (2007)
 
 \bibitem{GutCy}
-Guti{\'e}rrez, R., Rom{\'a}n, P., Romero, D. and Torres, F.:
-Applications of the univariate lognormal diffusion process with exogenous factors in forecasting. {Cybernet Syst.} {34}(8),709--724 (2003)
+Guti{\'e}rrez, R., Rom{\'a}n, P., Romero, D., Torres, F.:
+Applications of the univariate lognormal diffusion process with exogenous factors in forecasting. {Cybernet Syst.} {34}(8), 709--724 (2003)
 
-\bibitem{Gut99} Guti{\'e}rrez, R., Rom{\'a}n, P. and Torres, F.:
+\bibitem{Gut99} Guti{\'e}rrez, R., Rom{\'a}n, P., Torres, F.:
 Inference and first-passage-times for the lognormal diffusion process with exogenous factors: application to modelling
-in economics. Appl. Soch. Model. Bus. {15},325-332 (1999)
+in economics. Appl. Soch. Model. Bus. {15}, 325-332 (1999)
 
 \bibitem{SA}
-Ingber, L.:
-Simulated annealing: Practice versus theory. Mathl. Comput. Modelling, vol. 18(11), pp. 29--57 (1993)
-
+Ingber, L.: 
+Simulated annealing: Practice versus theory. Mathl. Comput. Modelling, 18(11), pp. 29--57 (1993)
 
 \bibitem{Kirkpatrick83}
 S. Kirkpatrick1, C. D. Gelatt Jr. M. P. Vecch:
-Optimization by Simulated Annealing. Science Vol. 220 no. 4598 pp. 671-680 (1983)
+Optimization by Simulated Annealing. Science 220(4598) pp. 671--680 (1983)
 
 \bibitem{Michalewicz96}
-Zbigniew Michalewicz:
-Heuristic methods for evolutionary computation techniques. J. Heuristics 1(2):177-206 (1996)
+Michalewicz, Z.:
+Heuristic methods for evolutionary computation techniques. J. Heuristics 1(2) pp. 177--206 (1996)
 
 \bibitem{EA}
 B{\"{a}}ck, T.:
 Evolutionary algorithms in theory and practice, Oxford University Press (1996)
 
 \bibitem{Kloeden}
-Kloeden, P. E., Platen, E. y Schurz, H.:
+Kloeden, P. E., Platen, E., Schurz, H.:
 Numerical solution of SDE through computer experiments, {Springer-Verlag} (1994)
 
 \bibitem{Rao}
-Rao, N. J., Borwankar, J. D. y Ramkrishna, D.:
+Rao, N. J., Borwankar, J. D., Ramkrishna, D.:
 Numerical solution of Ito integral equations. {SIAM Journal on Control and Optimization} {12}, 124--139 (1974)
 
 \bibitem{error}
 De Gooijer, J.G., Hyndman, R.J.:
-25 Years of IIF Time Series Forecasting: A Selective Review. Tinbergen Institute Discussion Papers No. TI 05-068/4 . (2005)
+25 Years of IIF Time Series Forecasting: A Selective Review. Tinbergen Institute Discussion Papers No. TI 05-068/4  (2005)
 
 \bibitem{GProp}
-P. A. Castillo, J. Carpio, J. J. Merelo, V. Rivas, G. Romero, and A. Prieto:
-Evolving Multilayer Perceptrons, Neural Processing Letters, vol. 12, no. 2, pp. 115--127, 2000.
+Castillo, P. A., Carpio, J., Merelo, J., Rivas, V., Romero, G., Prieto, A.: 
+Evolving Multilayer Perceptrons, Neural Processing Letters, 12(2), pp. 115--127, (2000)
 
 \bibitem{GPropII}
-S. Fahlman:
-Faster-learning variations on back-propagation: An empirical study, in Proceedings of the 1988 Connection- ist models summer school. M. Kaufmann, 1988, pp. 38--51.
+Fahlman, S.: 
+Faster-learning variations on back-propagation: An empirical study, in Proceedings of the 1988 Connection- ist models summer school. M. Kaufmann pp. 38--51 (1988)
 
 \bibitem{lognormal}
-Log-normal Distributions across the Sciences: Keys and Clues
-Article in Bioscience 51, No. 5, May 2001, 341-352.
+Limpert, E., Stahel, WA., Abbt, M.: 
+Log-normal Distributions across the Sciences: Keys and Clues, Bioscience 51(5) pp. 341--352 (2001)
 
 \bibitem{blx}
-Manuel Lozano, Francisco Herrera, Natalio Krasnogor, and Daniel Molina:
-Real-coded memetic algorithms with crossover hill-climbing. Evol. Comput. 12, 3. Sep, 2004, 273-302.
+Lozano, M., Herrera, F., Krasnogor, N., Molina D.:
+Real-coded memetic algorithms with crossover hill-climbing. Evol. Comput. 12(3) pp. 273--302 (2004)
 
-\bibitem{VNS} Mladenovic, N. and Hansen, P.: Variable neighborhood search. {Computers and Operations Research} {24}, 1097--1100 (1997)
+\bibitem{VNS} 
+Mladenovic, N., Hansen, P.: 
+Variable neighborhood search. {Computers and Operations Research} {24}, 1097--1100 (1997)
 
 \end{thebibliography}
-%\bibliography{comparingbib}  % sigproc.bib is the name of the Bibliography in this case
-
-
 \end{document}
