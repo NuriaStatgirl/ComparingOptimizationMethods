@@ -107,7 +107,7 @@ J. M. Crespo\titlenote{Dr. ~Crespo}\\
 % 6th. author
 \alignauthor
 J. J. Merelo\titlenote{Dr. ~Merelo}\\
-       \affaddr{Computer Arquitecture}\\
+       \affaddr{Computer Architecture}\\
        \affaddr{University of Granada}\\
        \affaddr{Granada, Spain}\\
        \email{jmerelo@ugr.es}
@@ -129,8 +129,8 @@ J. J. Merelo\titlenote{Dr. ~Merelo}\\
 
 \begin{abstract}
 The maximum likelihood estimation of the parameters of a diffusion
-process requires a system of equations that, for some cases, has no
-explicit solution; thus, the solution has to be estimated. We will use
+process requires to solve a system of equations that, in some cases, has no
+explicit solution; thus, it has to be estimated. We will use
 optimization methods to find those solutions: an Iterative Method, an
 algorithm based on Newton-Raphson solver, a Variable Neighbourhood
 Search method, a Simulated Annealing algorithm and an Evolutionary
@@ -152,18 +152,39 @@ reliable approach.
 
 \section{Introduction}
 
-Many probabilistic models are frequently used for natural growth-pattern modeling and making forecast. Although there exists a lot of different growth-patterns, and many models to use, among the widely studied and useful models are diffusion processes. They are frequently employed in biological growth modeling. \cite{lognormal}.
+Many probabilistic models are frequently used for natural
+growth-pattern modeling and making forecast. Although there exists a
+lot of different growth-patterns, and many models to use, among the
+widely studied and useful models are diffusion processes. They are
+frequently employed in biological growth modeling. \cite{lognormal}. 
 
 
 %%%Nuevo
 
-Diffusion process is one usual mathematical formulation of a model for population growth in a randomly
-varying environment \cite{lognormal}. These models describe how a population adopts a new innovation, technology or behaviour. With these kind of models, we have the transity density function (t.d.f.) which express the chance of observing
-any size for the population at any time when the initial size is specified. With the t.d.f we also are able to determine the time at that population first reaches a fixed size. Moreover, we can forecast future values of the population size as well as confidence intervals for the predictions.
+A diffusion process is an usual mathematical formulation of a model for population growth in a randomly
+varying environment \cite{lognormal}. These models describe how a
+population adopts a new innovation, technology or behaviour. With
+these kind of models, we have the transity density function (t.d.f.)
+% transity? Is that correct? - JJ
+which express the chance of observing 
+any size for the population at any time when the initial size is
+specified. With the t.d.f we also are able to determine the time at
+that population first reaches a fixed size. Moreover, we can forecast
+future values of the population size as well as confidence intervals
+for the predictions. 
 
-In this paper we focus our attention on the Gompertz-lognormal diffusion process \cite{proceedingBol}. It can be seen as a mixture between a Gompertz-type process \cite{Gut07b} and a lognormal process \cite{GutCy}. The first one models precesses with trends showing enclosed growth patterns, as biological growth with finite space or resources. The second one is useful for modelling not bounded growth with exponential trend.
+In this paper we focus our attention on the Gompertz-lognormal
+diffusion process \cite{proceedingBol}. It can be seen as a mixture
+between a Gompertz-type process \cite{Gut07b} and a lognormal process
+\cite{GutCy}. The first one models precesses with trends showing
+enclosed growth patterns, as biological growth with finite space or
+resources. The second one is useful for modelling unbounded growth
+with an exponential tendency. 
 
-The mixture of them, the Gompertz-lognormal diffusion process, combines both trends; a first part Gompertz-like growth and a second exponential part. This process is defined through the infinitesimal moments
+The mixture of them, the Gompertz-lognormal diffusion process,
+combines both trends; a first part Gompertz-like growth and a second
+exponential part. This process is defined through the infinitesimal
+moments 
 %{\scriptsize
 \[
 \begin{array}{l}
@@ -173,9 +194,16 @@ A_2(x,t)=\sigma^2 x^2,
 \]
 with $m > \beta > 0$, $c\in \mathbb{R}$.
 %}
-%Maribel: Deber{\'\i}amos poner qu{\'e} es m, que es e, que es c y por supuesto mencionar que t es el tiempo y que x es la variable independiente no?
+%Maribel: Deber{\'\i}amos poner qu{\'e} es m, que es e, que es c y por
+%supuesto mencionar que t es el tiempo y que x es la variable
+%independiente no? 
 
-Taking $c=0$ the process is Gompertz-type, and for a known fixed value of $\beta$ the process is an homogeneous lognormal diffusion process. In other cases, the process has a shape with two inflection points. This makes the process useful for modelling situations with observed paths along time that turn from increasing to decreasing or from concave to convex.
+Taking $c=0$ the process is Gompertz-type, and for a known fixed value
+of $\beta$ the process is an homogeneous lognormal diffusion
+process. In other cases, the process has a shape with two inflection
+points. This makes the process useful for modelling situations with
+observed paths along time that turn from increasing to decreasing or
+from concave to convex. 
 
 To carry out the estimation, we consider the t.d.f., that depends on $m$, $\beta$, $c$ and $\sigma^2$ parameters. Estimating the set of parameters leads to the estimation of the main features of the process. The most widely used, specifically for predicting purposes, are the mean, mode and quantile functions. Their expressions depend on the set of parameters $\{m;\beta; c; \sigma^2\}$ and, in the case of a lognormal initial distribution being considered, on the $\{ \mu_1, \sigma_1^2 \}$ set too.
 
