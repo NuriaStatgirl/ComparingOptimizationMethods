@@ -1,0 +1,100 @@
+---------------------------------------------------------------------
+
+A mathematical optimization or optimization problem \cite{Minoux1986} consists of maximizing or minimizing a real function by systematically choosing input values from within an allowed set and computing the value of the function. 
+
+Usually the process includes finding accurate values of some objective function given a set of constraints.
+
+
+A large number of algorithms proposed for solving optimization problems can be found in bibliography, such as iterative methods that terminate in a finite number of steps, or heuristics that may provide approximate solutions to the problem.
+However, as classical techniques of optimization might need multiple restart points and multiple runs, some authors propose using evolutionary computation \cite{Pattnaik2001} due to their population based approach.
+
+As an example, Valdez et al. \cite{Valdez2007,Valdez2007b,Valdez2008} propose using Particle Swarm Optimization (PSO) and a Genetic Algorithms (GA) to optimize a complex mathematical function, while Krishnanand et al. proposed a multimodal optimization using a PSO in \cite{Krishnanand2009}.
+
+Differential evolution (DE) has also been used as local and global selection approaches for solving multi-modal problems \cite{Ronkkonen2009}.
+
+Recently, an evolutionary multiobjective optimization (EMO) approach was proposed \cite{Deb2010,Saha2010}.
+
+
+Those optimization techniques are used to solve complex problems in the fields of, i.e., Mechanics and Engineering \cite{Tabucanon1996}, Economics, Control or Biology.
+In this paper, several methods are used to estimate a Gompertz-lognormal diffusion process parameters with predictive purpose.
+
+---------------------------------------------------------------------
+
+@article{Minoux1986,
+  title={Mathematical programming: Theory and algorithms},
+  author={Minoux, M.},
+  journal={Chichester: A Wiley-Interscience Publication. John Wiley & Sons, Ltd. ISBN 0-471-90170-9},
+  year={1986}
+}
+
+@article{Tabucanon1996,
+  title={Multi-objective programming for industrial engineers},
+  author={M.T. Tabucanon},
+  journal={Mathematical programming for industrial engineers, pp. 487-542, New York, Marcel Dekker Inc},
+  year={1996}
+}
+
+@article{Pattnaik2001,
+  title={Adaptive Evolutionary Computation Algorithm: A Novel Approach for Function Optimization},
+  author={S. Pattnaik and M. Nayak},
+  journal={Proceedings of the National Conference on Mathematical and Computational Models, pp. 125-130, PSG College of Technology, Coimbatore, India},
+  year={2001}
+}
+
+@incollection{Valdez2007,
+author={Valdez, Fevrier and Melin, Patricia and Castillo, Oscar},
+title={Evolutionary Computing for the Optimization of Mathematical Functions},
+booktitle={Analysis and Design of Intelligent Systems using Soft Computing Techniques},
+volume={41},
+series={Advances in Soft Computing},
+editor={Melin, Patricia and Castillo, Oscar and Ramírez, EduardoGomez and Kacprzyk, Janusz and Pedrycz, Witold},
+doi={10.1007/978-3-540-72432-2_47},
+url={http://dx.doi.org/10.1007/978-3-540-72432-2_47},
+publisher={Springer Berlin Heidelberg},
+pages={463-472},
+year={2007},
+isbn={978-3-540-72431-5}
+}
+
+@article{Valdez2007b,
+  title={Parallel Evolutionary Computing using a cluster for Mathematical Function Optimization},
+  author={Valdez, Fevrier and Melin, Patricia},
+  journal={San Diego, CA, USA, pp. 598-602},
+  year={2007}
+}
+
+@article{Valdez2008,
+  title={A new Evolutionary Method Combining Particle Swarm Optimization and Genetic Algorithms Using Fuzzy Logic},
+  author={Valdez, Fevrier and Melin, Patricia and Castillo, Oscar},
+  journal={O. Castillo et al. (Eds). Soft Computing for Hybrid Intelligent Systems, SCI 154, pp. 347-361, Springer-Verlag},
+  year={2008}
+}
+
+@article{Krishnanand2009,
+  title={Glowworm swarm optimization for simultaneous capture of multiple local optima of multimodal functions},
+  author={K. N. Krishnanand and D. Ghose},
+  journal={Swarm Intelligence, Vol. 3, No. 2, pp. 87–124},
+  year={2009}
+} 
+
+@misc{Ronkkonen2009,
+  author = {Ronkkonen, J.},
+  title = {{Continuous Multimodal Global Optimization with Differential Evolution Based Methods}},
+  howpublished = "Technical Report (PhD Thesis) available at \url{https://oa.doria.fi/bitstream/handle/10024/50498/isbn%209789522148520.pdf}",
+  year = {2009}, 
+  note = "[Online; accessed 7-Feb-2015]"
+}
+
+@article{Deb2010,
+  title={Finding Multiple Solutions for Multimodal Optimization Problems Using a Multi-Objective Evolutionary Approach},
+  author={Deb, K. and Saha, A.},
+  journal={Genetic and Evolutionary Computation Conference, GECCO 2010, Proceedings, pp. 447-454, Portland, Oregon, USA. DOI: 10.1145/1830483.1830568},
+  year={2010}
+}
+
+@article{Saha2010,
+  title={A Bi-criterion Approach to Multimodal Optimization: Self-adaptive Approach},
+  author={Saha, A. and Deb, K.},
+  journal={Lecture Notes in Computer Science, Volume 6457/2010, pp. 95-104},
+  year={2010}
+}
