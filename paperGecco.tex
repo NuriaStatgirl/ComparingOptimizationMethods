@@ -1,8 +1,8 @@
-
 \documentclass{sig-alternate}
 \usepackage{multicol}
 \usepackage{graphicx, epsfig}
 \usepackage{graphicx}
+\usepackage{url}
 \begin{document}
 \conferenceinfo{GECCO'15,} {July 11-15, 2015, Madrid, Spain.}
     \CopyrightYear{2015}
@@ -16,14 +16,7 @@
 %\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
 % --- End of Author Metadata ---
 
-\title{Using evolutionary algorithms to optimize the estimation of a diffusion process\titlenote{(Produces the permission block, and
-copyright information). For use with
-SIG-ALTERNATE.CLS. Supported by ACM.}}
-\subtitle{[Extended Abstract]
-\titlenote{A full version of this paper is available as
-\textit{Author's Guide to Preparing ACM SIG Proceedings Using
-\LaTeX$2_\epsilon$\ and BibTeX} at
-\texttt{www.acm.org/eaddress.htm}}}
+\title{Using evolutionary algorithms to optimize the estimation of a diffusion process}
 %
 % You need the command \numberofauthors to handle the 'placement
 % and alignment' of the authors beneath the title.
@@ -66,51 +59,52 @@ SIG-ALTERNATE.CLS. Supported by ACM.}}
 %
 % 1st. author
 \alignauthor
-%Nuria Rico\titlenote{Dr.~Nuria Rico Castro.}\\
-%       \affaddr{Faculty of Science }\\
+Eliminated
+%Nuria Rico\titlenote{Dr.~Rico}\\
+%       \affaddr{Statistics and Operational Research}\\
 %       \affaddr{University of Granada}\\
-%       \email{nrico@ugr.es}       
-Nuria Rico\titlenote{Dr.~Rico}\\
-       \affaddr{Statistics and Operational Research}\\
-       \affaddr{University of Granada}\\
-       \affaddr{Granada, Spain}\\
-       \email{nrico@ugr.es}
-% 2nd. author
+%       \affaddr{Granada, Spain}\\
+%       \email{nrico@ugr.es}
 \alignauthor
-M. G. Arenas\titlenote{Dr. ~Arenas}\\
-       \affaddr{Computer Architecture}\\
-       \affaddr{University of Granada}\\
-       \affaddr{Granada, Spain}\\
-       \email{mgarenas@ugr.es}
+Eliminated
+%M. G. Arenas\titlenote{Dr. ~Arenas}\\
+%       \affaddr{Computer Architecture}\\
+%       \affaddr{University of Granada}\\
+%       \affaddr{Granada, Spain}\\
+%       \email{mgarenas@ugr.es}
 % 3rd. author
-\alignauthor 
-Desir\'{e}e Romero\titlenote{Dr. ~Romero}\\
-       \affaddr{Statistics and Operational Research}\\
-       \affaddr{University of Granada}\\
-       \affaddr{Granada, Spain}\\
-       \email{deromero@ugr.es}
+\alignauthor
+Eliminated 
+%Desir\'{e}e Romero\titlenote{Dr. ~Romero}\\
+%       \affaddr{Statistics and Operational Research}\\
+%       \affaddr{University of Granada}\\
+%       \affaddr{Granada, Spain}\\
+%       \email{deromero@ugr.es}
 \and  % use '\and' if you need 'another row' of author names
 % 4th. author
-\alignauthor 
-P. A. Castillo\titlenote{Dr. ~Castillo}\\
-       \affaddr{Computer Architecture}\\
-       \affaddr{University of Granada}\\
-       \affaddr{Granada, Spain}\\
-       \email{pacv@ugr.es}
+\alignauthor
+Eliminated 
+%P. A. Castillo\titlenote{Dr. ~Castillo}\\
+%       \affaddr{Computer Architecture}\\
+%       \affaddr{University of Granada}\\
+%       \affaddr{Granada, Spain}\\
+%       \email{pacv@ugr.es}
 % 5th. author
 \alignauthor
-J. M. Crespo\titlenote{Dr. ~Crespo}\\
-       \affaddr{Statistics and Operational Research}\\
-       \affaddr{University of Granada}\\
-       \affaddr{Granada, Spain}\\
-       \email{crespo@ugr.es}
+Eliminated
+%J. M. Crespo\titlenote{Dr. ~Crespo}\\
+%       \affaddr{Statistics and Operational Research}\\
+%       \affaddr{University of Granada}\\
+%       \affaddr{Granada, Spain}\\
+%       \email{crespo@ugr.es}
 % 6th. author
 \alignauthor
-J. J. Merelo\titlenote{Dr. ~Merelo}\\
-       \affaddr{Computer Architecture}\\
-       \affaddr{University of Granada}\\
-       \affaddr{Granada, Spain}\\
-       \email{jmerelo@ugr.es}
+Eliminated
+%J. J. Merelo\titlenote{Dr. ~Merelo}\\
+%       \affaddr{Computer Architecture}\\
+%       \affaddr{University of Granada}\\
+%       \affaddr{Granada, Spain}\\
+%       \email{jmerelo@ugr.es}
 }
 % There's nothing stopping you putting the seventh, eighth, etc.
 % author on the opening page (as the 'third row') but we ask,
@@ -126,25 +120,9 @@ J. J. Merelo\titlenote{Dr. ~Merelo}\\
 
 \maketitle
 
-
 \begin{abstract}
-The maximum likelihood estimation of the parameters of a diffusion
-process requires to solve a system of equations that, in some cases, has no
-explicit solution; thus, it has to be estimated. We will use
-optimization methods to find those solutions: an Iterative Method, an
-algorithm based on Newton-Raphson solver, a Variable Neighbourhood
-Search method, a Simulated Annealing algorithm and an Evolutionary
-Algorithm. We generate four data sets following a Gompertz-lognormal
-diffusion process using different noise levels. The methods are applied
-to these data sets in order to estimate the parameters that rule
-the diffusion process. Results show that bio-inspired methods
-yield suitable solutions for the problem every time, even when the
-noise level increases. On the other hand, some analytical methods as
-Newton-Raphson or the Iterative Method do not always solve the
-problem whether their scores depend on the starting point for initial
-solution or the noise level hinders the resolution of the problem. In
-these cases, the bio-inspired algorithms remain as a suitable and
-reliable approach. 
+Diffusion processes are stochastic models, usually employed for modeling and forecasting in observed paths that vary along time under random environment. Such models are useful if we are able to know the values of the parameters involved. The maximum likelihood estimation of the parameters requires a system of equations that, for some cases, has no explicit solution; thus, the solution needs be estimated. We will use optimization methods to find those solutions: an Iterative Method, an algorithm based on Newton-Raphson solver, a Variable Neighbourhood Search method, a Simulated Annealing algorithm and an Evolutionary Algorithm. We generate four data sets following a Gompertz-lognormal diffusion process using different noise levels. The methods are applied to these data sets in order to estimate the parameters that rule the diffusion process. Results show that bio-inspired methods yield suitable solutions for the problem every time, even when the noise level increases. On the other hand, some analytical methods as Newton-Raphson or the Iterative Method do not always solve the problem whether their scores depend on the starting point for initial solution or the noise level hinders the resolution of the problem. In these cases, the bio-inspired algorithms remain as a suitable and
+reliable approach.
 
 %\keywords{Maximum likelihood estimate, parameters estimation}
 \keywords{Diffusion Process, Parameter Estimation, Optimization Methods}
@@ -152,39 +130,15 @@ reliable approach.
 
 \section{Introduction}
 
-Many probabilistic models are frequently used for natural
-growth-pattern modeling and making forecast. Although there exists a
-lot of different growth-patterns, and many models to use, among the
-widely studied and useful models are diffusion processes. They are
-frequently employed in biological growth modeling. \cite{lognormal}. 
+Many probabilistic models are frequently used for modelling natural growth-patterns and making forecast. Although there exists a lot of different growth-patterns, and many models to use, among the widely studied and useful models are diffusion processes. They are frequently employed in biological growth modelling. \cite{lognormal}.
 
+Diffusion process is one usual mathematical formulation of a model for population growth in a randomly
+varying environment \cite{lognormal}. These models also describe how a population adopts a new innovation, technology or behaviour \cite{Myrskyla2013}. With these kind of models, we have the transition density function (t.d.f.) which express the chance of observing
+any size for the population at any time when the initial size is specified. With the t.d.f we also are able to determine the time at that population first reaches a fixed size. Moreover, we can forecast future values of the population size as well as confidence intervals for the predictions.
 
-%%%Nuevo
+In this paper we focus our attention on the Gompertz-lognormal diffusion process. It can be seen as a mixture between a Gompertz-type process \cite{Gut07b} and a lognormal process \cite{GutCy}. The first one models precesses with trends showing enclosed growth patterns, as biological growth with finite space or resources. The second one is useful for modelling not bounded growth with exponential trend.
 
-A diffusion process is an usual mathematical formulation of a model for population growth in a randomly
-varying environment \cite{lognormal}. These models describe how a
-population adopts a new innovation, technology or behaviour. With
-these kind of models, we have the transity density function (t.d.f.)
-% transity? Is that correct? - JJ
-which express the chance of observing 
-any size for the population at any time when the initial size is
-specified. With the t.d.f we also are able to determine the time at
-that population first reaches a fixed size. Moreover, we can forecast
-future values of the population size as well as confidence intervals
-for the predictions. 
-
-In this paper we focus our attention on the Gompertz-lognormal
-diffusion process \cite{proceedingBol}. It can be seen as a mixture
-between a Gompertz-type process \cite{Gut07b} and a lognormal process
-\cite{GutCy}. The first one models precesses with trends showing
-enclosed growth patterns, as biological growth with finite space or
-resources. The second one is useful for modelling unbounded growth
-with an exponential tendency. 
-
-The mixture of them, the Gompertz-lognormal diffusion process,
-combines both trends; a first part Gompertz-like growth and a second
-exponential part. This process is defined through the infinitesimal
-moments 
+The mixture of them, the Gompertz-lognormal diffusion process, combines both trends; a first part Gompertz-like growth and a second exponential part. This process is defined through the infinitesimal moments
 %{\scriptsize
 \[
 \begin{array}{l}
@@ -194,67 +148,81 @@ A_2(x,t)=\sigma^2 x^2,
 \]
 with $m > \beta > 0$, $c\in \mathbb{R}$.
 %}
-%Maribel: Deber{\'\i}amos poner qu{\'e} es m, que es e, que es c y por
-%supuesto mencionar que t es el tiempo y que x es la variable
-%independiente no? 
+%Maribel: Deber{\'\i}amos poner qu{\'e} es m, que es e, que es c y por supuesto mencionar que t es el tiempo y que x es la variable independiente no?
 
-Taking $c=0$ the process is Gompertz-type, and for a known fixed value
-of $\beta$ the process is an homogeneous lognormal diffusion
-process. In other cases, the process has a shape with two inflection
-points. This makes the process useful for modelling situations with
-observed paths along time that turn from increasing to decreasing or
-from concave to convex. 
+Taking $c=0$ the process is Gompertz-type, and for a known fixed value of $\beta$ the process is an homogeneous lognormal diffusion process. In other cases, the process has a shape with two inflection points. This makes the process useful for modeling situations with observed paths along time that turn from increasing to decreasing or from concave to convex.
 
 To carry out the estimation, we consider the t.d.f., that depends on $m$, $\beta$, $c$ and $\sigma^2$ parameters. Estimating the set of parameters leads to the estimation of the main features of the process. The most widely used, specifically for predicting purposes, are the mean, mode and quantile functions. Their expressions depend on the set of parameters $\{m;\beta; c; \sigma^2\}$ and, in the case of a lognormal initial distribution being considered, on the $\{ \mu_1, \sigma_1^2 \}$ set too.
 
-The problem we deal with is to find the maximum likelihood estimates (MLE) of the parameters of the model, from which the estimation of the parametric functions can be found. Thus, we assume $x_{ij}$, $i=1,\cdots,d$, $j=n_1, \cdots, n_d$ a discrete sampling of $d$ paths, observed in $n_i$ times named $t_{ij}\,(i=1,\cdots,d,j=1,\cdots,n_i )$, not necessarily equal in each observed path, but $t_{i1}=t_{1}$, $i=1,\cdots, d$. With the sample, we try to obtain MLE of the parameters maximising the likelihood function, or equivalently, maximising the log-likelihood without constants values. So the final function we have to maximise, using $b=e^{-\beta}$, and $k=\sum_{i=1}^d n_i$ , is
-\begin{equation}\label{funcion}
+The problem we deal with is to find the maximum likelihood estimates (MLE) of the parameters of the model, from which the estimation of the parametric functions can be found. Thus, we assume $x_{ij}$, $i=1,\cdots,d$, $j=n_1, \cdots, n_d$ a discrete sampling of $d$ paths, observed in $n_i$ times named $t_{ij}\,(i=1,\cdots,d,j=1,\cdots,n_i )$, not necessarily equal in each observed path, but $t_{i1}=t_{1}$, $i=1,\cdots, d$. With the sample, we try to obtain MLE of the parameters maximising the likelihood function, or equivalently, maximising the log-likelihood without constants values. So the final function we have to maximise, using $b=e^{-\beta}$, and $k=\sum_{i=1}^d n_i$ , is equation ( \ref{funcion}).
+
+\begin{figure*}[htb]
+\begin{equation}
+\label{funcion}
 L(m,b,c,\sigma^2)=\frac{d-k}{2}\ln\sigma^2
 -\frac{1}{2}\sum_{i=1}^d\sum_{j=2}^{n_i}\frac{\left[\ln\frac{x_{ij}}{x_{ij-1}}-
     \frac{m}{\ln(b)} \left(b^{t_{ij}}-b^{t_{ij-1}}\right)+\left(\frac{\sigma^2}{2}-c\right)(t_{ij}-t_{ij-1})\right]^2}
     {(t_{ij}-t_{ij-1})\sigma^2}
 \end{equation}
-We differentiate (\ref{funcion}) with respect to all the unknown parameters, and equalize the expressions to zero to obtain the system of equations to solve. In addition, we consider the case $t_{ij}-t_{ij-1}=h$, $i=1,\ldots,d$ and rewrite the system as follows
-\[
-\begin{array}{ll}
+\end{figure*}
+
+We differentiate (\ref{funcion}) with respect to all the unknown parameters, and equalize the expressions to zero to obtain the system of equations to solve. In addition, we consider the case $t_{ij}-t_{ij-1}=h$, $i=1,\ldots,d$ and rewrite the system as equation (\ref{tochoEcuacion}) obtaining, after some operations, that all the estimations depend on $b$ as equation (\ref{estima}) shows. Finally, we have the equation (\ref{ecuacion}) that has no explicit solution.
+
+
+
+\begin{figure*}[htb]
+%\begin{equation}
+\begin{eqnarray}
+%\begin{array}{ll}
     A_{1,b}=\displaystyle\sum_{i=1}^{d}\displaystyle\sum_{j=2}^{n_i}b^{t_{ij-1}}&
-    A^*_{1,b}=\displaystyle\sum_{i=1}^{d}\displaystyle\sum_{j=2}^{n_i}t_{ij-1}b^{t_{ij-1}} \\
+    A^*_{1,b}=\displaystyle\sum_{i=1}^{d}\displaystyle\sum_{j=2}^{n_i}t_{ij-1}b^{t_{ij-1}} \label{tochoEcuacion}
+\\
     A_{2,b}=\displaystyle\sum_{i=1}^{d}\displaystyle\sum_{j=2}^{n_i}b^{2t_{ij-1}}&
-    A^*_{2,b}=\displaystyle\sum_{i=1}^{d}\displaystyle\sum_{j=2}^{n_i}t_{ij-1}b^{2t_{ij-1}}\\
+    A^*_{2,b}=\displaystyle\sum_{i=1}^{d}\displaystyle\sum_{j=2}^{n_i}t_{ij-1}b^{2t_{ij-1}}\nonumber\\
     A_{3,b}=\displaystyle\sum_{i=1}^{d}\displaystyle\sum_{j=2}^{n_i}b^{t_{ij-1}}
     \ln\displaystyle\frac{x_{ij}}{x_{ij-1}} &
     A^*_{3,b}=\displaystyle\sum_{i=1}^{d}\displaystyle\sum_{j=2}^{n_i}t_{ij-1}b^{t_{ij-1}}
-  \ln\displaystyle\frac{x_{ij}}{x_{ij-1}}\\
-  A_{4,b}=\displaystyle\sum_{i=1}^{d}\displaystyle\sum_{j=2}^{n_i}\ln^2\displaystyle\frac{x_{ij}}{x_{ij-1}} & A_{5,b}=\displaystyle\sum_{i=1}^{d}\displaystyle\sum_{j=2}^{n_i}\ln\displaystyle\frac{x_{ij}}{x_{ij-1}}
-\end{array}
-\]
-obtaining, after some operations, that all the estimations depend on $b$:
+  \ln\displaystyle\frac{x_{ij}}{x_{ij-1}}\nonumber\\
+  A_{4,b}=\displaystyle\sum_{i=1}^{d}\displaystyle\sum_{j=2}^{n_i}\ln^2\displaystyle\frac{x_{ij}}{x_{ij-1}} & A_{5,b}=\displaystyle\sum_{i=1}^{d}\displaystyle\sum_{j=2}^{n_i}\ln\displaystyle\frac{x_{ij}}{x_{ij-1}}\nonumber
+%\end{array}
+%\]
+\end{eqnarray}
+%\end{equation}
+\end{figure*}
 
 
 
-\noindent
-{\scriptsize
-\begin{equation}
+\begin{figure*}[htb]
+\begin{eqnarray}
 \sigma_b^2=\frac{1}{h(k-d)}\,\frac{A_{4,b}A^*_{1,b}A_{2,b}-A_{4,b}A_{1,b}A^*_{2,b}+A_{1,b}A^*_{3,b}A_{3,b}-A^*_{1,b}A^2_{3,b}+
-    A_{3,b}A^*_{2,b}A_{5,b}-A^*_{3,b}A_{2,b}A_{5,b}}{A^*_{1,b}A_{2,b}-A_{1,b}A^*_{2,b}},
-\label{estima}
-\end{equation}
-}
-\noindent $
-    m_b= \frac{\ln(b)}{b^h-1}\frac{A^*_{1,b}A_{3,b}- A_{1,b}A^*_{3,b}}{A^*_{1,b}A_{2,b}-A_{1,b}A^*_{2,b}}\
-$
-and
-$
-    c_b=\frac{\sigma^2}{2}-\frac{1}{h}\,\frac{A_{3,b}A^*_{2,b}-A^*_{3,b}A_{2,b}}{A^*_{1,b}A_{2,b}-A_{1,b}A^*_{2,b}}
-$
+    A_{3,b}A^*_{2,b}A_{5,b}-A^*_{3,b}A_{2,b}A_{5,b}}{A^*_{1,b}A_{2,b}-A_{1,b}A^*_{2,b}},\label{estima}\\
+    m_b= \frac{\ln(b)}{b^h-1}\frac{A^*_{1,b}A_{3,b}- A_{1,b}A^*_{3,b}}{A^*_{1,b}A_{2,b}-A_{1,b}A^*_{2,b}}\nonumber\\
+    c_b=\frac{\sigma^2}{2}-\frac{1}{h}\,\frac{A_{3,b}A^*_{2,b}-A^*_{3,b}A_{2,b}}{A^*_{1,b}A_{2,b}-A_{1,b}A^*_{2,b}}\nonumber
+\end{eqnarray}
+\end{figure*}
 
-\noindent and, finally, the equation
+
 \begin{equation}\label{ecuacion}
     A_{5,b}-\frac{m_b}{\ln(b)}(b^h-1)A_{1,b}+\left(\frac{\sigma_b^2}{2}-c_b\right)h(k-d)=0 ,
 \end{equation}
-that has no explicit solution.
 
-This point take us to propose different approaches to find the estimates of the parameters, maximising the likelihood function via numerical approximations or finding the estimates with other strategy. We describe the proposed methods in Section \ref{sec:methods}. We compare afterwards, at Section \ref{sec:pathsStudy} all the methods using four simulated data set with different noise levels. Finally, in Section \ref{sec:Conclusion} we establish the main conclusions of the study.
+This point take us to propose different approaches to find the estimates of the parameters, maximising the likelihood function via numerical approximations or finding the estimates with other strategy. In Section \ref{sec:soa} we review the state of art about optimization methods. We describe the proposed methods in Section \ref{sec:methods}. We compare afterwards, at Section \ref{sec:pathsStudy} all the methods using four simulated data set with different noise levels. Finally, in Section \ref{sec:Conclusion} we establish the main conclusions of the study.
+
+\section{State of Art}
+\label{sec:soa}
+
+A mathematical optimization or optimization problem \cite{Minoux1986} consists of maximizing or minimizing a real function by systematically choosing input values from within an allowed set and computing the value of the function. 
+
+Usually the process includes finding accurate values of some objective function given a set of constraints.
+
+
+A large number of algorithms proposed for solving optimization problems can be found in bibliography, such as iterative methods that terminate in a finite number of steps, or heuristics methods that may provide approximate solutions to the problem.
+However, as classical techniques of optimization might need multiple restart points and multiple runs, some authors propose using evolutionary computation \cite{Pattnaik2001} due to their population based approach.
+
+As an example, Valdez et al. \cite{Valdez2007,Valdez2007b,Valdez2008} propose using Particle Swarm Optimization (PSO) and Genetic Algorithms (GA) to optimise a complex mathematical function, while Krishnanand et al. proposed a multimodal optimization using a PSO in \cite{Krishnanand2009}. Differential evolution (DE) has also been used as local and global selection approaches for solving multi-modal problems \cite{Ronkkonen2009}. And recently, an evolutionary multiobjective optimization (EMO) approach was proposed in \cite{Deb2010,Saha2010}.
+
+Those optimization techniques are used to solve complex problems in the fields of, i.e., Mechanics and Engineering \cite{Tabucanon1996}, Economics, Control or Biology.
+In this paper, several methods are used to estimate a Gompertz-lognormal diffusion process parameters with predictive purpose. For this case, the accuracy of the solution is very important because the output of function (\ref{funcion}) is sensitive with the input values. This is the reason because we need optimization methods that are able to generate the exact values for input parameters.   
 
 
 \section{Methods}
@@ -336,11 +304,11 @@ The algorithm matches with the version described in \cite{Michalewicz96}, except
 
 \subsection{Evolutionary Algorithm}
 \label{subsec:EA}
-The Evolutionary Algorithm (EA from now) \cite{EA} searches the values of the parameters including them in each individual of a population. The fitness function of the algorithm is the value of the likelihood function used by the parameters each individual proposes by its chromosome. Each individual uses real codification with four values randomly generated at the beginning. Each value is randomly generated within a closed interval defined by an expert for this problem. The individuals are evolved with roulette-wheel selector using BLX-alpha crossover \cite{blx} with $0.8$ rate and a normal distribution mutator to alter the individuals with $0.2$ as application rate and $1\%$ as mutation rate per gen.
+The Evolutionary Algorithm (EA from now) \cite{EA} searches the values of the parameters including them in each individual of a population. The fitness function of the algorithm is the value of the likelihood function used by the parameters each individual proposes by its chromosome. Each individual uses real codification with four values randomly generated at the beginning. Each value is randomly generated within a closed interval defined by an expert for this problem. The individuals are evolved with roulette-wheel selector using BLX-alpha crossover \cite{blx} with $0.8$ rate and a normal distribution mutator to alter the individuals with $0.2$ as application rate and $1\%$ as mutation rate per gen. The parameters of the algorithm were fixed making previous experiments. During previous phase we test several stopping criteria like the difference to the Newton-Raphson method solution, but Newton-Raphson method does not provide a reliable solution so this stopping criteria was rejected.
 
-The method simulates a generational evolution of $100$ individuals along $120$ iterations. The process is repeated until the number of generations is reached. This method takes much more time than IM, RN or VNS. In addition, this method provides a solution each time you run it and it does not diverge from the solution of the problem as Newton-Raphson based algorithm does. The reliability of the method is $100\%$, because the method always provides a suitable solution.
+The method simulates a generational evolution of $100$ individuals along $120$ iterations. This method takes much more time than IM, RN or VNS. In addition, this method provides a solution each time you run it and it does not diverge from the solution of the problem as Newton-Raphson based algorithm does. The reliability of the method is $100\%$, because the method always provides a suitable solution.
 
-The values for the parameters have been tuning by experimentation running a set of previous experiment where the minimum number of generations and population size where fixed.
+The values for the parameters have been tuning by experimentation running a set of previous experiment where the minimum number of generations, population size and operators rates where fixed.
 
 
 \section{Simulated paths study}
@@ -368,7 +336,7 @@ We summarize the results in Tables \ref{tabla:parametros}  and \ref{tabla:errore
 %maribel quito aqu{\'\i} varias frases para ponerlas m{\'a}s abajo, que creo que tienen m{\'a}s sentido
 
 \begin{table*}
-\caption{\footnotesize{Average of the estimates $(\overline{\hat{m}}$, $\overline{\hat{\beta}}$, $\overline{\hat{c}}$, $\overline{\hat{\sigma}^{2}})$; standard deviation of each one ($sd$); average ans standard deviation of the value of function (\ref{ecuacion}) ($\overline{\hat{F}},sd$); best found solution (${\hat{F}}_{min}$). Paths simulated with $m=1$, $\beta=0.2$ and $c=0.013$ and $\sigma^2=\{10^{-5},10^{-4},10^{-3},10^{-2}\}$. For each method, the number of the successful solutions (\emph{Succ.}) has been included in the second column.}}
+\caption{\footnotesize{Average of the estimates $(\overline{\hat{m}}$, $\overline{\hat{\beta}}$, $\overline{\hat{c}}$, $\overline{\hat{\sigma}^{2}})$; standard deviation of each one ($sd$); average and standard deviation of the value of function (\ref{ecuacion}) ($\overline{\hat{F}},sd$); best found solution (${\hat{F}}_{min}$). Paths simulated with $m=1$, $\beta=0.2$ and $c=0.013$ and $\sigma^2=\{10^{-5},10^{-4},10^{-3},10^{-2}\}$. For each method, the number of the successful solutions (\emph{Succ.}) has been included in the second column.}}
 \begin{center}
 {\scriptsize
 \begin{tabular}{lc|rrrrrrrrrr}
@@ -519,71 +487,5 @@ Hidden for double-blind review
 %\end{center}
 %\end{figure}
 \bibliographystyle{abbrv}
-\begin{thebibliography}{10}
-
-\bibitem{proceedingBol}
-Guti{\'e}rrez, R., Rico, N., Rom{\'a}n, P., Romero, D., Torres, F.:
-Un nuevo proceso de difusi{\'o}n para modelizar patrones de crecimiento mixto exponencial-Gompertz. XXX Congreso Nacional SEIO. Proceedings book, pp. 1--15 (2007)
-
-\bibitem{Gut07b}
-Guti{\'e}rrez, R., Rom{\'a}n, P., Romero, D., Serrano, J.J.,  Torres, F.:
-A new Gompertz-type diffusion process with application to random growth. Math. Biosci. 208, 147--165 (2007)
-
-\bibitem{GutCy}
-Guti{\'e}rrez, R., Rom{\'a}n, P., Romero, D., Torres, F.:
-Applications of the univariate lognormal diffusion process with exogenous factors in forecasting. {Cybernet Syst.} {34}(8), 709--724 (2003)
-
-\bibitem{Gut99} Guti{\'e}rrez, R., Rom{\'a}n, P., Torres, F.:
-Inference and first-passage-times for the lognormal diffusion process with exogenous factors: application to modelling
-in economics. Appl. Soch. Model. Bus. {15}, 325-332 (1999)
-
-\bibitem{SA}
-Ingber, L.: 
-Simulated annealing: Practice versus theory. Mathl. Comput. Modelling, 18(11), pp. 29--57 (1993)
-
-\bibitem{Kirkpatrick83}
-S. Kirkpatrick1, C. D. Gelatt Jr. M. P. Vecch:
-Optimization by Simulated Annealing. Science 220(4598) pp. 671--680 (1983)
-
-\bibitem{Michalewicz96}
-Michalewicz, Z.:
-Heuristic methods for evolutionary computation techniques. J. Heuristics 1(2) pp. 177--206 (1996)
-
-\bibitem{EA}
-B{\"{a}}ck, T.:
-Evolutionary algorithms in theory and practice, Oxford University Press (1996)
-
-\bibitem{Kloeden}
-Kloeden, P. E., Platen, E., Schurz, H.:
-Numerical solution of SDE through computer experiments, {Springer-Verlag} (1994)
-
-\bibitem{Rao}
-Rao, N. J., Borwankar, J. D., Ramkrishna, D.:
-Numerical solution of Ito integral equations. {SIAM Journal on Control and Optimization} {12}, 124--139 (1974)
-
-\bibitem{error}
-De Gooijer, J.G., Hyndman, R.J.:
-25 Years of IIF Time Series Forecasting: A Selective Review. Tinbergen Institute Discussion Papers No. TI 05-068/4  (2005)
-
-\bibitem{GProp}
-Castillo, P. A., Carpio, J., Merelo, J., Rivas, V., Romero, G., Prieto, A.: 
-Evolving Multilayer Perceptrons, Neural Processing Letters, 12(2), pp. 115--127, (2000)
-
-\bibitem{GPropII}
-Fahlman, S.: 
-Faster-learning variations on back-propagation: An empirical study, in Proceedings of the 1988 Connection- ist models summer school. M. Kaufmann pp. 38--51 (1988)
-
-\bibitem{lognormal}
-Limpert, E., Stahel, WA., Abbt, M.: 
-Log-normal Distributions across the Sciences: Keys and Clues, Bioscience 51(5) pp. 341--352 (2001)
-
-\bibitem{blx}
-Lozano, M., Herrera, F., Krasnogor, N., Molina D.:
-Real-coded memetic algorithms with crossover hill-climbing. Evol. Comput. 12(3) pp. 273--302 (2004)
-
-\bibitem{VNS} 
-Mladenovic, N., Hansen, P.: 
-Variable neighborhood search. {Computers and Operations Research} {24}, 1097--1100 (1997)
-
-\end{thebibliography}
+\bibliography{paperGecco}
 \end{document}
