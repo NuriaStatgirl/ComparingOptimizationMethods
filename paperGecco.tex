@@ -121,7 +121,32 @@ Eliminated
 \maketitle
 
 \begin{abstract}
-Diffusion processes are stochastic models, usually employed for modeling and forecasting in observed paths that vary along time under random environment. Such models are useful if we are able to know the values of the parameters involved. The maximum likelihood estimation of the parameters requires a system of equations that, for some cases, has no explicit solution; thus, the solution needs be estimated. We will use optimization methods to find those solutions: an Iterative Method, an algorithm based on Newton-Raphson solver, a Variable Neighbourhood Search method, a Simulated Annealing algorithm and an Evolutionary Algorithm. We generate four data sets following a Gompertz-lognormal diffusion process using different noise levels. The methods are applied to these data sets in order to estimate the parameters that rule the diffusion process. Results show that bio-inspired methods yield suitable solutions for the problem every time, even when the noise level increases. On the other hand, some analytical methods as Newton-Raphson or the Iterative Method do not always solve the problem whether their scores depend on the starting point for initial solution or the noise level hinders the resolution of the problem. In these cases, the bio-inspired algorithms remain as a suitable and
+Diffusion processes are stochastic models, % of what? -- JJ
+ usually employed for
+modeling and forecasting in observed paths that vary along time under
+random environment. % Don't understand -- clarify - JJ
+ Such models are useful if we are able to know the values of the
+ parameters involved. The maximum likelihood estimation of the
+ parameters requires a system of equations that, for some cases, has
+ no explicit solution; thus, the solution needs be estimated. We will
+ use optimization methods to find those solutions: an Iterative
+ Method, an algorithm based on Newton-Raphson solver, a Variable
+ Neighbourhood Search method, a Simulated Annealing algorithm and an
+ Evolutionary Algorithm. We generate four data sets following a
+ Gompertz-lognormal diffusion process using different noise
+ levels. % are these data sets complete? They correspond to what? - JJ
+The methods are applied to these data sets in order to
+ estimate the parameters that rule the diffusion process. Results show
+ that bio-inspired methods yield suitable solutions for the problem in
+ all four data sets, even when the noise level increases. %noise is
+                                %first mentioned here. Why is it
+                                %important? - JJ
+ On the other hand,
+ some analytical methods as Newton-Raphson or the Iterative Method do
+ not always solve the problem if their scores depend on the
+ starting point for initial solution or the noise level hinders the
+ resolution of the problem. In these cases, the bio-inspired
+ algorithms remain  a suitable and 
 reliable approach.
 
 %\keywords{Maximum likelihood estimate, parameters estimation}
@@ -130,10 +155,18 @@ reliable approach.
 
 \section{Introduction}
 
-Many probabilistic models are frequently used for modelling natural growth-patterns and making forecast. Although there exists a lot of different growth-patterns, and many models to use, among the widely studied and useful models are diffusion processes. They are frequently employed in biological growth modelling. \cite{lognormal}.
+Many probabilistic models are frequently used for modelling natural
+growth-patterns and making forecasts % of what? - JJ
+. Although there exists a lot of
+different growth-patterns, and many different ways of modeling them,
+among the most widely
+studied and useful models are diffusion processes. % cita - JJ
+ They are frequently
+employed in biological growth modelling. \cite{lognormal}. 
 
-Diffusion process is one usual mathematical formulation of a model for population growth in a randomly
-varying environment \cite{lognormal}. These models also describe how a population adopts a new innovation, technology or behaviour \cite{Myrskyla2013}. With these kind of models, we have the transition density function (t.d.f.) which express the chance of observing
+Diffusion process is an usual mathematical formulation of a model for population growth in a randomly
+varying environment \cite{lognormal}. %again same citation?  - JJ
+ These models also describe how a population adopts a new innovation, technology or behaviour \cite{Myrskyla2013}. With these kind of models, we have the transition density function (t.d.f.) which express the chance of observing
 any size for the population at any time when the initial size is specified. With the t.d.f we also are able to determine the time at that population first reaches a fixed size. Moreover, we can forecast future values of the population size as well as confidence intervals for the predictions.
 
 In this paper we focus our attention on the Gompertz-lognormal diffusion process. It can be seen as a mixture between a Gompertz-type process \cite{Gut07b} and a lognormal process \cite{GutCy}. The first one models precesses with trends showing enclosed growth patterns, as biological growth with finite space or resources. The second one is useful for modelling not bounded growth with exponential trend.
@@ -154,7 +187,17 @@ Taking $c=0$ the process is Gompertz-type, and for a known fixed value of $\beta
 
 To carry out the estimation, we consider the t.d.f., that depends on $m$, $\beta$, $c$ and $\sigma^2$ parameters. Estimating the set of parameters leads to the estimation of the main features of the process. The most widely used, specifically for predicting purposes, are the mean, mode and quantile functions. Their expressions depend on the set of parameters $\{m;\beta; c; \sigma^2\}$ and, in the case of a lognormal initial distribution being considered, on the $\{ \mu_1, \sigma_1^2 \}$ set too.
 
-The problem we deal with is to find the maximum likelihood estimates (MLE) of the parameters of the model, from which the estimation of the parametric functions can be found. Thus, we assume $x_{ij}$, $i=1,\cdots,d$, $j=n_1, \cdots, n_d$ a discrete sampling of $d$ paths, observed in $n_i$ times named $t_{ij}\,(i=1,\cdots,d,j=1,\cdots,n_i )$, not necessarily equal in each observed path, but $t_{i1}=t_{1}$, $i=1,\cdots, d$. With the sample, we try to obtain MLE of the parameters maximising the likelihood function, or equivalently, maximising the log-likelihood without constants values. So the final function we have to maximise, using $b=e^{-\beta}$, and $k=\sum_{i=1}^d n_i$ , is equation ( \ref{funcion}).
+The problem we deal with is to find the maximum likelihood estimates
+(MLE) of the parameters of the model, from which the estimation of the
+parametric functions can be found. Thus, we assume $x_{ij}$,
+$i=1,\cdots,d$, $j=n_1, \cdots, n_d$ a discrete sampling of $d$ paths,
+observed in $n_i$ times named $t_{ij}\,(i=1,\cdots,d,j=1,\cdots,n_i
+)$, not necessarily equal in each observed path, but $t_{i1}=t_{1}$,
+$i=1,\cdots, d$. With the sample, we try to obtain MLE of the
+parameters maximising the likelihood function, or equivalently,
+maximising the log-likelihood without constants values. So the final
+function we have to maximise, using $b=e^{-\beta}$, and
+$k=\sum_{i=1}^d n_i$ , is equation ( \ref{funcion}). 
 
 \begin{figure*}[htb]
 \begin{equation}
@@ -211,24 +254,55 @@ This point take us to propose different approaches to find the estimates of the 
 \section{State of Art}
 \label{sec:soa}
 
-A mathematical optimization or optimization problem \cite{Minoux1986} consists of maximizing or minimizing a real function by systematically choosing input values from within an allowed set and computing the value of the function. 
+A mathematical optimization or optimization problem \cite{Minoux1986}
+consists of maximizing or minimizing a real function by systematically
+choosing input values from within an allowed set and computing the
+value of the function.  % Er. This for an optimization journal or
+                        % conference? Really? Shouldn't you start
+                        % talking about diffussion processes and why
+                        % they are important? - JJ
 
-Usually the process includes finding accurate values of some objective function given a set of constraints.
+Usually the process includes finding accurate values of some objective
+function given a set of constraints. % really
 
 
-A large number of algorithms proposed for solving optimization problems can be found in bibliography, such as iterative methods that terminate in a finite number of steps, or heuristics methods that may provide approximate solutions to the problem.
-However, as classical techniques of optimization might need multiple restart points and multiple runs, some authors propose using evolutionary computation \cite{Pattnaik2001} due to their population based approach.
+A large number of algorithms proposed for solving optimization
+problems can be found in bibliography, % absolutely 0-information
+                                % sentence - JJ
+ such as iterative methods that terminate in a finite number of steps, or heuristics methods that may provide approximate solutions to the problem.
+However, as classical techniques of optimization might need multiple
+restart points and multiple runs, some authors propose using
+evolutionary computation \cite{Pattnaik2001} due to their population
+based approach. % Er. Um. This is the state of the art of what? - JJ
 
-As an example, Valdez et al. \cite{Valdez2007,Valdez2007b,Valdez2008} propose using Particle Swarm Optimization (PSO) and Genetic Algorithms (GA) to optimise a complex mathematical function, while Krishnanand et al. proposed a multimodal optimization using a PSO in \cite{Krishnanand2009}. Differential evolution (DE) has also been used as local and global selection approaches for solving multi-modal problems \cite{Ronkkonen2009}. And recently, an evolutionary multiobjective optimization (EMO) approach was proposed in \cite{Deb2010,Saha2010}.
+As an example, Valdez et al. \cite{Valdez2007,Valdez2007b,Valdez2008}
+propose using Particle Swarm Optimization (PSO) and Genetic Algorithms
+(GA) to optimise a complex mathematical function, while Krishnanand et
+al. proposed a multimodal optimization using a PSO in
+\cite{Krishnanand2009}. Differential evolution (DE) has also been used
+as local and global selection approaches for solving multi-modal
+problems \cite{Ronkkonen2009}. And recently, an evolutionary
+multiobjective optimization (EMO) approach was proposed in
+\cite{Deb2010,Saha2010}. % for what?
 
 Those optimization techniques are used to solve complex problems in the fields of, i.e., Mechanics and Engineering \cite{Tabucanon1996}, Economics, Control or Biology.
-In this paper, several methods are used to estimate a Gompertz-lognormal diffusion process parameters with predictive purpose. For this case, the accuracy of the solution is very important because the output of function (\ref{funcion}) is sensitive with the input values. This is the reason because we need optimization methods that are able to generate the exact values for input parameters.   
+In this paper, several methods are used to estimate a
+Gompertz-lognormal diffusion process parameters with predictive
+purpose. For this case, the accuracy of the solution is very important
+because the output of function (\ref{funcion}) is sensitive with the
+input values. This is the reason because we need optimization methods
+that are able to generate the exact values for input parameters.   
+% this state of the art should be rewritten - JJ
 
 
 \section{Methods}
 \label{sec:methods}
 
-The aim of this work is to compare methods that allow us to adjust a Gompertz-lognormal diffusion process to sample paths by the estimation of its parameters. That estimated process is useful with predictive purpose, using the estimated mean function, i.e. in a lot of natural diffusion processes like diseases spreading.
+The aim of this work is to compare methods that allow us to adjust a
+Gompertz-lognormal diffusion process to sample paths by the estimation
+of its parameters. That estimated process is useful with predictive
+purpose, using the estimated mean function, i.e. in a lot of natural
+diffusion processes like diseases spreading. 
 
 We propose to use one deterministic method (Iterative Method), one quasi-deterministic method (Newton-Raphson method based algorithm), and three non-deterministic methods (Variable Neighbour Search , \cite{VNS}, Simulated Annealing, \cite{SA} and Evolutionary Algorithm, \cite{EA}). All of them search the estimates of the parameters but the way each method finds the estimations is different from one to the other. The Iterative Method and the Newton-Raphson  provides the estimations by solving the equation (\ref{ecuacion}) approximately and then they use the relations between the parameters displayed in (\ref{estima}) to estimate the complete set. Nevertheless, the non-deterministic methods, Variable Neighbourhood Search, Simulated Annealing and the Evolutionary Algorithm, acquire the estimations optimising the function (\ref{funcion}) directly, with no additional knowledge.
 
