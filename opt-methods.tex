@@ -16,7 +16,7 @@
 %\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
 % --- End of Author Metadata ---
 
-\title{Using evolutionary algorithms to optimize the estimation of a diffusion process}
+\title{Diffusion Process and its optimization}
 %
 % You need the command \numberofauthors to handle the 'placement
 % and alignment' of the authors beneath the title.
@@ -127,27 +127,25 @@ modeling and forecasting in observed paths that vary along time under
 random environment. % Don't understand -- clarify - JJ
  Such models are useful if we are able to know the values of the
  parameters involved. The maximum likelihood estimation of the
- parameters requires a system of equations that, for some cases, has
- no explicit solution; thus, the solution needs be estimated. We will
- use optimization methods to find those solutions: an Iterative
+ parameters requires a system of equations that, in some cases, has
+ no explicit solution; thus, the solution must be estimated. In this paper, we propose several ways to solve this problem using some optimization methods to find those solutions: an Iterative
  Method, an algorithm based on Newton-Raphson solver, a Variable
  Neighbourhood Search method, a Simulated Annealing algorithm and an
- Evolutionary Algorithm. We generate four data sets following a
- Gompertz-lognormal diffusion process using different noise
+ Evolutionary Algorithm. Four data sets following a
+ Gompertz-lognormal diffusion process have been tested with different noise
  levels. % are these data sets complete? They correspond to what? - JJ
 The methods are applied to these data sets in order to
  estimate the parameters that rule the diffusion process. Results show
  that bio-inspired methods yield suitable solutions for the problem in
- all four data sets, even when the noise level increases. %noise is
-                                %first mentioned here. Why is it
-                                %important? - JJ
- On the other hand,
- some analytical methods as Newton-Raphson or the Iterative Method do
- not always solve the problem if their scores depend on the
- starting point for initial solution or the noise level hinders the
+ all four data sets, even on instances of the problem with higher noise level. 
+ %noise is
+ %first mentioned here. Why is it
+ %important? - JJ
+ Moreover, some analytical methods as Newton-Raphson or the Iterative Method do
+ not always find the solution for the problem because their scores depend on the
+ starting point for initial solution or because the noise level hinders the
  resolution of the problem. In these cases, the bio-inspired
- algorithms remain  a suitable and 
-reliable approach.
+ algorithms remain a suitable and reliable approach.
 
 %\keywords{Maximum likelihood estimate, parameters estimation}
 \keywords{Diffusion Process, Parameter Estimation, Optimization Methods}
@@ -156,20 +154,74 @@ reliable approach.
 \section{Introduction}
 
 Many probabilistic models are frequently used for modelling natural
-growth-patterns and making forecasts % of what? - JJ
-. Although there exists a lot of
+growth-patterns and making forecasts of data.% of what? - JJ
+Although there exists a lot of
 different growth-patterns, and many different ways of modeling them,
 among the most widely
-studied and useful models are diffusion processes. % cita - JJ
- They are frequently
-employed in biological growth modelling. \cite{lognormal}. 
+studied and useful models are diffusion processes \cite{rogerswilliams1} % cita - JJ
+usually employed in biological growth modelling \cite{Kaandorp:400332}. 
 
 Diffusion process is an usual mathematical formulation of a model for population growth in a randomly
 varying environment \cite{lognormal}. %again same citation?  - JJ
- These models also describe how a population adopts a new innovation, technology or behaviour \cite{Myrskyla2013}. With these kind of models, we have the transition density function (t.d.f.) which express the chance of observing
-any size for the population at any time when the initial size is specified. With the t.d.f we also are able to determine the time at that population first reaches a fixed size. Moreover, we can forecast future values of the population size as well as confidence intervals for the predictions.
+ These models can also be used for describing how a population adopts a new innovation, technology or behaviour \cite{Myrskyla2013}. These kind of models set the transition density function (t.d.f.) which express the chance of observing
+any size for the population at any time when the initial size is specified. The t.d.f also determines the time at that population first reaches a fixed size. Moreover, we can forecast future values of the population size as well as confidence intervals for the predictions.
 
-In this paper we focus our attention on the Gompertz-lognormal diffusion process. It can be seen as a mixture between a Gompertz-type process \cite{Gut07b} and a lognormal process \cite{GutCy}. The first one models precesses with trends showing enclosed growth patterns, as biological growth with finite space or resources. The second one is useful for modelling not bounded growth with exponential trend.
+In this paper we focus our attention on the Gompertz-lognormal \cite{eurocast2013} diffusion process because it it has not been studied enough and it arises as base for several important diseases spreading. The details of the process are detailed in section \ref{sec:gompertz}. 
+
+The rest of the paper is organised as follow: Section \ref{sec:soa} reviews the state of art about optimization methods. Section \label{sec:gompertz}  introduces the Gompertz-lognormal process. The proposed methods are detailed in Section \ref{sec:methods}. Afterwards, at Section \ref{sec:pathsStudy} the experiments, the results using four simulated data sets with different noise levels are included. Finally, in Section \ref{sec:Conclusion} we establish the main conclusions of the study.
+
+
+\section{State of Art}
+\label{sec:soa}
+
+
+
+A mathematical optimization or optimization problem \cite{Minoux1986}
+consists of maximizing or minimizing a real function by systematically
+choosing input values from within an allowed set and computing the
+value of the function.  % Er. This for an optimization journal or
+                        % conference? Really? Shouldn't you start
+                        % talking about diffussion processes and why
+                        % they are important? - JJ
+
+Usually the process includes finding accurate values of some objective
+function given a set of constraints. % really
+
+
+A large number of algorithms proposed for solving optimization
+problems can be found in bibliography, % absolutely 0-information
+                                % sentence - JJ
+ such as iterative methods that terminate in a finite number of steps, or heuristics methods that may provide approximate solutions to the problem.
+However, as classical techniques of optimization might need multiple
+restart points and multiple runs, some authors propose using
+evolutionary computation \cite{Pattnaik2001} due to their population
+based approach. % Er. Um. This is the state of the art of what? - JJ
+
+As an example, Valdez et al. \cite{Valdez2007,Valdez2007b,Valdez2008}
+propose using Particle Swarm Optimization (PSO) and Genetic Algorithms
+(GA) to optimise a complex mathematical function, while Krishnanand et
+al. proposed a multimodal optimization using a PSO in
+\cite{Krishnanand2009}. Differential evolution (DE) has also been used
+as local and global selection approaches for solving multi-modal
+problems \cite{Ronkkonen2009}. And recently, an evolutionary
+multiobjective optimization (EMO) approach was proposed in
+\cite{Deb2010,Saha2010}. % for what?
+
+Those optimization techniques are used to solve complex problems in the fields of, i.e., Mechanics and Engineering \cite{Tabucanon1996}, Economics, Control or Biology.
+In this paper, several methods are used to estimate a
+Gompertz-lognormal diffusion process parameters with predictive
+purpose. For this case, the accuracy of the solution is very important
+because the output of function (\ref{funcion}) is sensitive with the
+input values. This is the reason because we need optimization methods
+that are able to generate the exact values for input parameters.   
+% this state of the art should be rewritten - JJ
+
+
+\section{Gompertz-Lognormal Difussion Process}
+\label{sec:gompertz}
+
+Gompertz-lognormal diffusion process is childlike comparing it with other classical processes as [FALTAN LOS CLÁSICOS Y REFERENCIA A ELLOS]. 
+It can be seen as a mixture between a Gompertz-type process \cite{Gut07b} and a lognormal process \cite{GutCy}. The first one models processes with trends showing enclosed growth patterns, as biological growth with finite space or resources. The second one is useful for modelling not bounded growth with exponential trend.
 
 The mixture of them, the Gompertz-lognormal diffusion process, combines both trends; a first part Gompertz-like growth and a second exponential part. This process is defined through the infinitesimal moments
 %{\scriptsize
@@ -249,50 +301,7 @@ We differentiate (\ref{funcion}) with respect to all the unknown parameters, and
     A_{5,b}-\frac{m_b}{\ln(b)}(b^h-1)A_{1,b}+\left(\frac{\sigma_b^2}{2}-c_b\right)h(k-d)=0 ,
 \end{equation}
 
-This point take us to propose different approaches to find the estimates of the parameters, maximising the likelihood function via numerical approximations or finding the estimates with other strategy. In Section \ref{sec:soa} we review the state of art about optimization methods. We describe the proposed methods in Section \ref{sec:methods}. We compare afterwards, at Section \ref{sec:pathsStudy} all the methods using four simulated data set with different noise levels. Finally, in Section \ref{sec:Conclusion} we establish the main conclusions of the study.
-
-\section{State of Art}
-\label{sec:soa}
-
-A mathematical optimization or optimization problem \cite{Minoux1986}
-consists of maximizing or minimizing a real function by systematically
-choosing input values from within an allowed set and computing the
-value of the function.  % Er. This for an optimization journal or
-                        % conference? Really? Shouldn't you start
-                        % talking about diffussion processes and why
-                        % they are important? - JJ
-
-Usually the process includes finding accurate values of some objective
-function given a set of constraints. % really
-
-
-A large number of algorithms proposed for solving optimization
-problems can be found in bibliography, % absolutely 0-information
-                                % sentence - JJ
- such as iterative methods that terminate in a finite number of steps, or heuristics methods that may provide approximate solutions to the problem.
-However, as classical techniques of optimization might need multiple
-restart points and multiple runs, some authors propose using
-evolutionary computation \cite{Pattnaik2001} due to their population
-based approach. % Er. Um. This is the state of the art of what? - JJ
-
-As an example, Valdez et al. \cite{Valdez2007,Valdez2007b,Valdez2008}
-propose using Particle Swarm Optimization (PSO) and Genetic Algorithms
-(GA) to optimise a complex mathematical function, while Krishnanand et
-al. proposed a multimodal optimization using a PSO in
-\cite{Krishnanand2009}. Differential evolution (DE) has also been used
-as local and global selection approaches for solving multi-modal
-problems \cite{Ronkkonen2009}. And recently, an evolutionary
-multiobjective optimization (EMO) approach was proposed in
-\cite{Deb2010,Saha2010}. % for what?
-
-Those optimization techniques are used to solve complex problems in the fields of, i.e., Mechanics and Engineering \cite{Tabucanon1996}, Economics, Control or Biology.
-In this paper, several methods are used to estimate a
-Gompertz-lognormal diffusion process parameters with predictive
-purpose. For this case, the accuracy of the solution is very important
-because the output of function (\ref{funcion}) is sensitive with the
-input values. This is the reason because we need optimization methods
-that are able to generate the exact values for input parameters.   
-% this state of the art should be rewritten - JJ
+This point take us to propose different approaches to find the estimates of the parameters, maximising the likelihood function via numerical approximations or finding the estimates with other strategy. 
 
 
 \section{Methods}
@@ -314,7 +323,7 @@ The Iterative Method, (from now, IM) uses relationships among the parameters and
 \begin{enumerate}
 \item First, we fix an initial value for parameter $\beta$ and the method uses it to get an initial set of solutions ($\{\hat{m}; \hat{\beta}; \hat{c}; \hat{\sigma}^2\}$) through assessing (\ref{estima}).
 \item Second, the method calculates $\beta'$ using the point of the path where the second inflection point is set, for improving the $\beta$ value.
-\item Third,  the method goes to step 1 and sets $\beta'$ as $\beta$. The process iterates until $|\beta-\beta'|<10^{-8}$.
+\item Third,  the method goes to step 1 and sets $\beta'$ as $\beta$. The process iterates until $|\beta-\beta'|<10^{-8}$.[POR QUE ESTE VALOR]
 
 \end{enumerate}
 
@@ -332,7 +341,7 @@ Secondly, we provide estimations of the parameters using the Newton-Raphson meth
 \item The method iterates until stopping criteria is reached.
 \end{enumerate}
 
-We have selected, as stopping criteria, a maximum tolerance level in the iterative process. In particular we consider a threshold of $10^{-8}$.
+We have selected, as stopping criteria, a maximum tolerance level in the iterative process. In particular we consider a threshold of $10^{-8}$. [PORQUÉ ESTE VALOR]
 
 Getting together the solution that provides the NR and the relations between the parameters, we obtain the parameters estimations of the process using this method. If the data sets do not include a high noise level, NR method obtains a good solution to the problem, but its goodness depends on the initial random solution. In other cases, the method does not obtain a solution or the solution is so bad that we can not use it.
 
@@ -357,7 +366,7 @@ Variable neighbourhood search (VNS) \cite{VNS} is a metaheuristics designed for 
 
 \end{enumerate}
 
-In this case, the local search (2.b.ii) is the Neldel-Mead algorithm which does not carry out the gradient computation. The understanding for this choice is that if function (\ref{funcion}) is not derivable, the gradient does not exist. Moreover, we repeat second step for each range, $10$ times as maximum to assure the convergence to the optimum solution inside the current range. The stopping rule equals maximum tolerance to $10^{-8}$.
+In this case, the local search (2.b.ii) is the Neldel-Mead algorithm \cite{NelderMead65} which does not carry out the gradient computation. The understanding for this choice is that if function (\ref{funcion}) is not derivable, the gradient does not exist. Moreover, we repeat second step for each range, $10$ times as maximum to assure the convergence to the optimum solution inside the current range. The stopping rule equals maximum tolerance to $10^{-8}$.
 
 
 
@@ -369,7 +378,7 @@ Although the Simulated Annealing (from now, SA) \cite{SA} algorithm was proposed
 
 \begin{enumerate}
 \item At the beginning it generates a random solution as starting point. The algorithm generates a new solution from the current one by means of a change operator (new state generator).
-\item If the new solution is better, it is accepted. However, if it is worse, the algorithm accepts it using the probability of $p_a = e^{ - \Delta f / T }$ , where $\Delta f$  is the increment of the cost function and $T$ is the current value of temperature parameter. The temperature is then decreased using the temperature cold function $f_T$. The decrement rule used for this paper is $T_{n+1} = \alpha T_n$ , where $\alpha$ is equal to $0.95$ proposed by Kirkpatrick et al. \cite{Kirkpatrick83}.  For each temperature value, the algorithm test $32$ different solutions.
+\item If the new solution is better, it is accepted. However, if it is worse, it is accepted with a probability of $p_a = e^{ - \Delta f / T }$ , where $\Delta f$  is the increment of the cost function and $T$ is the current value of temperature parameter. The temperature is then decreased using the temperature cold function $f_T$. The decrement rule used for this paper is $T_{n+1} = \alpha T_n$ , where $\alpha$ is equal to $0.95$ proposed by Kirkpatrick et al. \cite{Kirkpatrick83}.  For each temperature value, the algorithm test $32$ different solutions.
 \item The algorithm starts with temperature equal to $10$ and ends when the temperature decreases according to the $f_T$ until $0.0001$.
 \end{enumerate}
 
